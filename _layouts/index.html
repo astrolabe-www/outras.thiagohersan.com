@@ -7,28 +7,50 @@
   <body>
     {% include top-bar.html %}
 
-    <div style="height:300px; width: 100%; background-color: #444;"></div>
+    <div class="home">
+      <div class="home-image-banner"
+           style="background-image: url('{{ site.baseurl }}/assets/algotypes/algotypes_02.jpg')"></div>
 
-    <div class="home-section-title">New</div>
-    {% assign newest = site.documents | sort:'date' | reverse %}
-    {% for n in newest limit:3 %}
-      <div>{{ n.title }}</div>
-    {% endfor %}
-
-    <div style="height:300px; width: 100%; background-color: #444;"></div>
-
-    {% for col in site.collections %}
-      {% unless col.label == 'posts' %}
-        {% assign posts = site.collections | where:"label",col.label | first %}
-        <div class="home-section-title">{{ col.title }}</div>
-
-        {% for p in posts.docs limit:3 %}
-          <div>{{ p.title }}</div>
+      <div class="home-section-title">New</div>
+      <div class="list-container">
+        {% assign newest = site.documents | sort:'date' | reverse %}
+        {% for p in newest limit:3 %}
+          <div class="list-item-container">
+            <a class="list-item-image"
+               style="background-image: url('{{ site.baseurl }}{{ p.cover }}')"
+               href="{{ site.baseurl }}{{ p.url }}"></a>
+            <a class="list-item-title"
+                 href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+          </div>
         {% endfor %}
-      {% endunless %}
-    {% endfor %}
+      </div>
 
-    <div style="height:300px; width: 100%; background-color: #444;"></div>
+      <div class="home-image-banner"
+           style="background-image: url('{{ site.baseurl }}/assets/algotypes/algotypes_07.jpg')"></div>
+
+      {% for col in site.collections %}
+        {% unless col.label == 'posts' %}
+          {% assign posts = site.collections | where:"label",col.label | first %}
+          <div class="home-section-title">{{ col.title }}</div>
+          <div class="list-container">
+            {% for p in posts.docs limit:3 %}
+              <div class="list-item-container">
+                <a class="list-item-image"
+                   style="background-image: url('{{ site.baseurl }}{{ p.cover }}')"
+                   href="{{ site.baseurl }}{{ p.url }}"></a>
+                <a class="list-item-title"
+                   href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+              </div>
+            {% endfor %}
+            <a class="list-link" href="{{ site.baseurl }}/{{ col.label }}">See More</a>
+          </div>
+        {% endunless %}
+      {% endfor %}
+
+      <div class="home-image-banner"
+           style="background-image: url('{{ site.baseurl }}/assets/algotypes/algotypes_00.jpg')"></div>
+
+    </div>
 
     {% include footer.html %}
   </body>

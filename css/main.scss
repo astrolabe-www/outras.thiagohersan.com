@@ -38,7 +38,6 @@ a {
 
   .main-title {
     font-size: 14px;
-    font-style: normal;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
@@ -54,8 +53,6 @@ a {
     a {
       display: block;
       width: 220px;
-      padding-bottom: 25%;
-      // background-image: url('{{ site.baseurl }}/assets/logo.png');
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -160,6 +157,7 @@ a {
       letter-spacing: .25em;
       line-height: 1em;
       text-transform: uppercase;
+      text-align: center;
     }
 
     a {
@@ -174,6 +172,101 @@ a {
         color: $TEXT-COLOR-HOVER;
       }
     }
+  }
+}
+
+.list-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 5% 96px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .list-item-container {
+    width: 100%;
+    padding: 1%;
+
+    .list-item-image {
+      display: block;
+      width: 100%;
+      padding-bottom: 100%;
+      background-position: center center;
+      background-size: cover;
+    }
+
+    .list-item-title {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 12px 0 0;
+      letter-spacing: .25em;
+    }
+  }
+}
+
+.home {
+  width: 100%;
+  margin: 0 auto;
+
+  .home-section-title {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 32px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+  }
+
+  .home-image-banner {
+    width: 100%;
+    padding-bottom: 40%;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .list-item-container {
+    width: 30%;
+  }
+
+  .list-link {
+    display: block;
+    width: 20%;
+    padding: 16px 0;
+    margin: 16px auto;
+    border: #222 solid 1px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: .15em;
+  }
+}
+
+.list {
+  width: 100%;
+  padding: 0 2%;
+  box-sizing: border-box;
+
+  .list-title {
+    text-align: center;
+    padding: 16px 0;
+    font-size: 32px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+  }
+
+  .list-description {
+    box-sizing: border-box;
+    margin: 36px auto;
+    width: 90%;
+  }
+
+  .list-item-container {
+    width: 20%;
   }
 }
 
