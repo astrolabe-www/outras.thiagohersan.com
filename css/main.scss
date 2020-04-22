@@ -7,7 +7,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: Futura_FT;
+  font-family: Montserrat;
   font-size: 14px;
   @include media-query(DESKTOP) {
     font-size: 16px;
@@ -55,7 +55,7 @@ a {
       display: block;
       width: 220px;
       padding-bottom: 25%;
-      background-image: url('{{ site.baseurl }}/media/assets/logo.png');
+      // background-image: url('{{ site.baseurl }}/assets/logo.png');
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -90,12 +90,6 @@ a {
     @include media-query(DESKTOP) {
       display: block;
     }
-  }
-
-  .invisible-padding {
-    user-select: none;
-    visibility: hidden;
-    overflow: hidden;
   }
 }
 
