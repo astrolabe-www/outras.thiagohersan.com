@@ -1,0 +1,265 @@
+---
+---
+
+@import 'constants';
+@import 'font.css';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Futura_FT;
+  font-size: 14px;
+  @include media-query(DESKTOP) {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: inherit;
+  &:visited {
+    color: inherit;
+  }
+}
+
+.top-bar {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 24px;
+
+  @include media-query(DESKTOP) {
+    padding: 20px 2.5%;
+  }
+
+  .main-title {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .6em;
+    line-height: 1em;
+
+    color: $TEXT-COLOR;
+
+    @include media-query(DESKTOP) {
+      font-size: 16px;
+    }
+
+    a {
+      display: block;
+      width: 220px;
+      padding-bottom: 25%;
+      background-image: url('{{ site.baseurl }}/media/assets/logo.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      text-decoration: none;
+      color: $TEXT-COLOR;
+      &:visited {
+        color: $TEXT-COLOR;
+      }
+
+      @include media-query(DESKTOP) {
+        width: 250px;
+      }
+    }
+  }
+
+  .main-title.center {
+    margin: 0 auto;
+  }
+
+  .menu-open {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 100;
+    @include media-query(DESKTOP) {
+      display: none;
+    }
+  }
+
+  .menu-container {
+    display: none;
+    @include media-query(DESKTOP) {
+      display: block;
+    }
+  }
+
+  .invisible-padding {
+    user-select: none;
+    visibility: hidden;
+    overflow: hidden;
+  }
+}
+
+.mobile-menu {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  min-height: 200px;
+  background-color: #fff;
+  transition: left 0.8s ease-in-out;
+
+  .mobile-menu-content-container {
+    padding-bottom: 24px;
+  }
+
+  .menu-close {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    font-weight: 100;
+    padding: 16px;
+    color: $TEXT-COLOR;
+    transition: color $TRANSITION-PERIOD linear;
+
+    &:hover {
+      color: $TEXT-COLOR-HOVER;
+    }
+  }
+}
+
+.mobile-menu-hidden {
+  left: -100vw;
+}
+
+.mobile-menu-shown {
+  left: 0;
+}
+
+.menu-content {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include media-query(DESKTOP) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  li {
+    list-style: none;
+    padding: 24px 24px 0;
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: 1em;
+    text-transform: capitalize;
+
+    @include media-query(DESKTOP) {
+      padding: 0 10px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .25em;
+      line-height: 1em;
+      text-transform: uppercase;
+    }
+
+    a {
+      text-decoration: none;
+      color: $TEXT-COLOR;
+      transition: color $TRANSITION-PERIOD linear;
+
+      &:visited {
+        color: $TEXT-COLOR;
+      }
+      &:hover {
+        color: $TEXT-COLOR-HOVER;
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 64px 16px;
+  background-color: #ccc;
+  text-align: center;
+
+  .footer-title {
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.3em;
+  }
+
+  .footer-text {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 24px;
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 1.1em;
+  }
+}
+
+.video-wrapper-16x9 {
+  padding-bottom: 56.25%;
+}
+
+.video-wrapper-4x3 {
+  padding-bottom: 75%;
+}
+
+.video-wrapper-wrapper {
+  margin: 1rem auto;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  @include media-query(DESKTOP) {
+    padding: 0 64px;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  margin: 1rem auto;
+  height: 0;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.swipebox-gallery {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  .swipebox {
+    margin: 24px 5px 0;
+    width: 45%;
+
+    @include media-query(DESKTOP) {
+      width: 19%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

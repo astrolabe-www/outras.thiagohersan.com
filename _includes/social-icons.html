@@ -1,0 +1,9 @@
+<div class="some-icons">
+{% for social in site.social %}
+  {% unless social[1] == "" %}
+    <a class="icon-item" href="{{ social[1] }}" target="_blank">
+      <i class="fa fa-{{ social[0] }}" aria-hidden="true"></i>
+    </a>
+  {% endunless %}
+{% endfor %}
+</div>

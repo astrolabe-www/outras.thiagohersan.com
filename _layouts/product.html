@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+    {% include meta.html %}
+  </head>
+  <body>
+    {% include top-bar.html %}
+
+    <div>{{ page.title }}</div>
+    <img width="256px" src="{{ site.baseurl }}{{ page.cover }}">
+
+    {% include footer.html %}
+  </body>
+</html>

@@ -1,0 +1,71 @@
+name: "Title"
+keywords: "health, wellbeing, well-being, lifestyle, life-style"
+description: "All the signals that meet your needs"
+
+url: https://title.com
+baseurl: "/title.com"
+port: 45666
+permalink: /:title/
+
+collections:
+  relative-intensity:
+    title: "Relative Intensity Collection"
+    output: true
+    permalink: /:collection/:title/
+  visualizing-worlds:
+    title: "Visualizing Worlds Collection"
+    output: true
+    permalink: /:collection/:title/
+  algotypes:
+    title: "Algotypes"
+    output: true
+    permalink: /:collection/:title/
+
+social:
+  tumblr: ""
+  pinterest: ""
+  instagram: ""
+  twitter: ""
+  facebook: ""
+  youtube-play: ""
+  vimeo: ""
+  github: ""
+  soundcloud: ""
+  envelope: ""
+twitter_user: ""
+
+encoding: utf-8
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "list"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "cursos"
+    values:
+      layout: "product"
+  -
+    scope:
+      path: ""
+      type: "projetos"
+    values:
+      layout: "product"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+relative_permalinks: false
+include: ['_pages']
+exclude: [.git, .gitignore, .sass-cache, README.md]

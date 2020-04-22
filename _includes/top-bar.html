@@ -1,0 +1,16 @@
+<section class="top-bar">
+  <div id="menu-open" class="menu-open">
+    <i class="fa fa-bars"></i>
+  </div>
+  <div class="menu-container">{% include menu-content.html %}</div>
+  <div class="main-title"><a href="/{{site.baseurl}}"></a></div>
+  <div class="menu-container invisible-padding">{% include menu-content.html %}</div>
+  <div id="menu-open" class="menu-open invisible-padding">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu">
+    <div id="menu-close" class="menu-close"><i class="fa fa-times"></i></div>
+    <div class="mobile-menu-content-container">{% include menu-content.html %}</div>
+  </div>
+</section>
