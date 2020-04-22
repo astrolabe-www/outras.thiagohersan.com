@@ -1,0 +1,13 @@
+$TEXT-COLOR: #222;
+$TEXT-COLOR-LIGHT: #aaa;
+$LINK-COLOR-LIGHT: #eee;
+$TEXT-COLOR-HOVER: #aaa;
+
+$TRANSITION-PERIOD: 0.12s;
+$DESKTOP_WITH: 720px;
+
+@mixin media-query($canvas) {
+  @if $canvas == DESKTOP {
+   @media only screen and (min-width: $DESKTOP_WITH) { @content; }
+  }
+}
