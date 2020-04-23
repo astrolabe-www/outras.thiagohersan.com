@@ -287,6 +287,10 @@ a {
   padding: 0 2%;
   box-sizing: border-box;
 
+  @include media-query(DESKTOP) {
+      margin-top: 16px;
+  }
+
   .list-title {
     text-align: center;
     padding: 16px 0;
@@ -318,6 +322,10 @@ a {
   width: 100%;
   padding: 0 2%;
   box-sizing: border-box;
+
+  @include media-query(DESKTOP) {
+      margin-top: 16px;
+  }
 
   .product-title {
     text-align: center;
