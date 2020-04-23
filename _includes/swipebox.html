@@ -1,6 +1,8 @@
 <div class="swipebox-gallery">
+  {% assign cnt = 0 %}
   {% for file in site.static_files %}
-    {% if file.path contains include.prefix %}
+    {% if file.path contains include.prefix and cnt < 5 %}
+      {% assign cnt = cnt | plus:1 %}
       <div class="gallery-thumbnail" style="background-image: url('{{ site.baseurl }}{{ file.path }}')"></div>
       <a rel="{{ include.prefix }}" href="{{ site.baseurl }}{{ file.path }}" class="swipebox">
         <img src="{{ site.baseurl }}{{ file.path }}" alt="{{ include.subtitle }}">
