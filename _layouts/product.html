@@ -12,7 +12,13 @@
 
       <div class="product-container">
         <div class="product-container-0">
-          <img class="product-image" src="{{ site.baseurl }}{{ page.cover }}">
+          <div id="product-image"
+               class="product-image-class"
+               style="background-image: url('{{ site.baseurl }}{{ page.cover }}')">
+          </div>
+          {% if page.swipebox %}
+            {% include swipebox.html prefix=page.swipebox %}
+          {% endif %}
         </div>
 
         <div class="product-container-1">

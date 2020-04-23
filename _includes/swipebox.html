@@ -1,7 +1,8 @@
 <div class="swipebox-gallery">
   {% for file in site.static_files %}
     {% if file.path contains include.prefix %}
-      <a rel="{{ include.prefix }}" href="{{ site.baseurl }}{{ file.path }}" class="swipebox" title="{{ include.subtitle }}">
+      <div class="gallery-thumbnail" style="background-image: url('{{ site.baseurl }}{{ file.path }}')"></div>
+      <a rel="{{ include.prefix }}" href="{{ site.baseurl }}{{ file.path }}" class="swipebox">
         <img src="{{ site.baseurl }}{{ file.path }}" alt="{{ include.subtitle }}">
       </a>
     {% endif %}
@@ -9,3 +10,4 @@
 </div>
 
 <script src="{{ site.baseurl }}/js/swipebox.js"></script>
+<script src="{{ site.baseurl }}/js/product-gallery.js"></script>

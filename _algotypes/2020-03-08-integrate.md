@@ -2,6 +2,7 @@
 layout: product
 title: 'Integrate'
 cover: /assets/algotypes/algotypes_0x08_00.jpg
+swipebox: algotypes_0x08_
 Article: '476008'
 Collection: 'Algotypes'
 Size: '98 x 98 x 100 mm'

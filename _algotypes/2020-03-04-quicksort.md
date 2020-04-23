@@ -2,6 +2,7 @@
 layout: product
 title: 'Quicksort'
 cover: /assets/algotypes/algotypes_0x04_00.jpg
+swipebox: algotypes_0x04_
 Article: '476004'
 Collection: 'Algotypes'
 Size: '95 x 95 x 97 mm'

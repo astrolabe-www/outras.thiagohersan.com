@@ -371,12 +371,21 @@ a {
 
     .product-container-0 {
       width: 100%;
+      box-sizing: border-box;
+      padding: 5%;
+
       @include media-query(DESKTOP) {
         width: 60%;
       }
 
-      .product-image {
+      .product-image-class {
+        cursor: zoom-in;
         width: 100%;
+        padding-bottom: 80%;
+
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
       }
     }
 
@@ -511,16 +520,20 @@ a {
   -webkit-justify-content: center;
   justify-content: center;
 
+  .gallery-thumbnail {
+    margin: 0 2%;
+    width: 18%;
+    padding-bottom: 19%;
+    cursor: pointer;
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
   .swipebox {
-    margin: 24px 5px 0;
-    width: 45%;
-
-    @include media-query(DESKTOP) {
-      width: 19%;
-    }
-
     img {
-      width: 100%;
+      width: 0;
     }
   }
 }
