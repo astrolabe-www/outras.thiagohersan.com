@@ -26,16 +26,7 @@
       <div class="list-container">
         {% assign newest = site.documents | sort:'date' | reverse %}
         {% for p in newest limit:3 %}
-          <div class="list-item-container">
-            <a class="list-item-image"
-               style="background-image: url('{{ site.baseurl }}{{ p.cover }}')"
-               href="{{ site.baseurl }}{{ p.url }}"></a>
-            <a class="list-item-title"
-                 href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-            {% if p.tag %}
-              <div class="list-item-tag">{{ p.tag }}</div>
-            {% endif %}
-          </div>
+          {% include list-item.html product=p %}
         {% endfor %}
       </div>
 
@@ -48,16 +39,7 @@
           <div class="home-section-title">{{ col.title }}</div>
           <div class="list-container">
             {% for p in posts.docs limit:3 %}
-              <div class="list-item-container">
-                <a class="list-item-image"
-                   style="background-image: url('{{ site.baseurl }}{{ p.cover }}')"
-                   href="{{ site.baseurl }}{{ p.url }}"></a>
-                <a class="list-item-title"
-                   href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-                {% if p.tag %}
-                  <div class="list-item-tag">{{ p.tag }}</div>
-                {% endif %}
-              </div>
+              {% include list-item.html product=p %}
             {% endfor %}
           </div>
           <a class="list-link" href="{{ site.baseurl }}/{{ col.label }}">See More</a>

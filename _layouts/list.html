@@ -21,16 +21,7 @@
 
       <div class="list-container">
         {% for p in posts.docs reversed %}
-          <div class="list-item-container">
-            <a class="list-item-image"
-               style="background-image: url('{{ site.baseurl }}{{ p.cover }}')"
-               href="{{ site.baseurl }}{{ p.url }}"></a>
-            <a class="list-item-title"
-               href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-            {% if p.tag %}
-              <div class="list-item-tag">{{ p.tag }}</div>
-            {% endif %}
-          </div>
+          {% include list-item.html product=p %}
         {% endfor %}
       </div>
     </div>

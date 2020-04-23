@@ -1,0 +1,10 @@
+<div class="list-item-container">
+  <a class="list-item-image"
+     style="background-image: url('{{ site.baseurl }}{{ include.product.cover }}')"
+     href="{{ site.baseurl }}{{ include.product.url }}"></a>
+  <a class="list-item-title"
+     href="{{ site.baseurl }}{{ include.product.url }}">{{ include.product.title }}</a>
+  {% if include.product.tag %}
+  <div class="list-item-tag">{{ include.product.tag }}</div>
+  {% endif %}
+</div>
