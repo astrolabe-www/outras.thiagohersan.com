@@ -266,6 +266,7 @@ a {
   .list-link {
     display: block;
     width: 20%;
+    min-width: 100px;
     padding: 16px 20px;
     margin: 16px auto;
     border: #222 solid 1px;
@@ -273,6 +274,11 @@ a {
     text-align: center;
     text-decoration: none;
     letter-spacing: .15em;
+
+    @include media-query(DESKTOP) {
+      width: 20%;
+      min-width: 0;
+    }
   }
 
   .list-hr {
