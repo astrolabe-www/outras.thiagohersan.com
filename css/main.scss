@@ -144,9 +144,9 @@ a {
   li {
     list-style: none;
     padding: 24px 24px 0;
-    font-size: 36px;
+    font-size: 20px;
     font-weight: 200;
-    letter-spacing: 0;
+    letter-spacing: .25em;
     line-height: 1em;
     text-transform: capitalize;
 
@@ -178,7 +178,7 @@ a {
 .list-container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 5% 96px;
+  padding: 0 5%;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -204,6 +204,11 @@ a {
       text-transform: uppercase;
       padding: 12px 0 0;
       letter-spacing: .25em;
+      font-size: 10px;
+
+      @include media-query(DESKTOP) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -214,8 +219,12 @@ a {
 
   .home-video-container {
     width: 100%;
-    height: 600px;
+    max-height: 200px;
     overflow: hidden;
+
+    @include media-query(DESKTOP) {
+      max-height: 600px;
+    }
 
     .home-video {
       width: 100%;
@@ -227,34 +236,49 @@ a {
 
   .home-section-title {
     text-align: center;
-    padding: 40px 0;
-    font-size: 32px;
+    padding: 40px 0 0;
+    font-size: 18px;
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: .2em;
+
+      @include media-query(DESKTOP) {
+        font-size: 32px;
+        padding: 40px 0;
+      }
   }
 
   .home-image-banner {
     width: 100%;
     padding-bottom: 40%;
+    margin-top: 96px;
     background-position: center center;
     background-size: cover;
   }
 
   .list-item-container {
-    width: 30%;
+    width: 45%;
+    @include media-query(DESKTOP) {
+      width: 30%;
+    }
   }
 
   .list-link {
     display: block;
     width: 20%;
-    padding: 16px 0;
+    padding: 16px 20px;
     margin: 16px auto;
     border: #222 solid 1px;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
     letter-spacing: .15em;
+  }
+
+  .list-hr {
+    width: 40%;
+    border-bottom: 2px #666 solid;
+    margin: 48px auto 0;
   }
 }
 
@@ -279,7 +303,10 @@ a {
   }
 
   .list-item-container {
-    width: 20%;
+    width: 45%;
+    @include media-query(DESKTOP) {
+      width: 20%;
+    }
   }
 }
 
