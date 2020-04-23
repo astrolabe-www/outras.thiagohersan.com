@@ -7,8 +7,30 @@
   <body>
     {% include top-bar.html %}
 
-    <div>{{ page.title }}</div>
-    <img width="256px" src="{{ site.baseurl }}{{ page.cover }}">
+    <div class="product">
+      <div class="product-title">{{ page.title }}</div>
+
+      <div class="product-container">
+        <div class="product-container-0">
+          <img class="product-image" src="{{ site.baseurl }}{{ page.cover }}">
+        </div>
+
+        <div class="product-container-1">
+          <div class="product-description">{{ content }}</div>
+          <div class="product-specs">
+            {% assign specs = "Article, Collection, Color, Size, Material" | split: ', ' %}
+            {% for s in specs %}
+              {% if page[s] %}
+                <div class="product-spec-container">
+                  <div class="product-spec-title">{{ s | capitalize }}:</div>
+                  <div class="product-spec-description">{{ page[s] }}</div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
 
     {% include footer.html %}
   </body>
