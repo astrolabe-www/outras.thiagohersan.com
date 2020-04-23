@@ -151,7 +151,7 @@ a {
     text-transform: capitalize;
 
     @include media-query(DESKTOP) {
-      padding: 0 10px;
+      padding: 0 24px;
       font-size: 12px;
       font-weight: 400;
       letter-spacing: .25em;
