@@ -4,7 +4,7 @@ $LINK-COLOR-LIGHT: #eee;
 $TEXT-COLOR-HOVER: #aaa;
 
 $TRANSITION-PERIOD: 0.12s;
-$DESKTOP_WITH: 720px;
+$DESKTOP_WITH: 800px;
 
 @mixin media-query($canvas) {
   @if $canvas == DESKTOP {
