@@ -2,8 +2,8 @@ name: "Title"
 keywords: "health, wellbeing, well-being, lifestyle, life-style"
 description: "All the signals that meet your needs"
 
-url: https://title.com
-baseurl: "/title.com"
+url: https://astrolabe-www.github.io
+baseurl: "/title"
 port: 45666
 permalink: /:title/
 
