@@ -8,8 +8,19 @@
     {% include top-bar.html %}
 
     <div class="home">
-      <div class="home-image-banner"
-           style="background-image: url('{{ site.baseurl }}/assets/algotypes/algotypes_02.jpg')"></div>
+
+      <div class="home-video-container">
+        <video playsinline autoplay muted loop class="home-video">
+          <source src="{{ site.baseurl }}/assets/algotypes/algotypes.webm"
+                  type="video/webm">
+
+          <source src="{{ site.baseurl }}/assets/algotypes/algotypes.mp4"
+                  type="video/mp4">
+
+          <div class="home-image-banner"
+             style="background-image: url('{{ site.baseurl }}/assets/algotypes/algotypes_02.jpg')"></div>
+        </video>
+      </div>
 
       <div class="home-section-title">New</div>
       <div class="list-container">
