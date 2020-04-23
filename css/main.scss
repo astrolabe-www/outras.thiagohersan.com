@@ -425,19 +425,45 @@ a {
 
   .footer-title {
     margin: 0 auto;
-    max-width: 500px;
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.3em;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .6em;
+    line-height: 1em;
   }
 
   .footer-text {
     margin: 0 auto;
     max-width: 500px;
     padding: 24px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 200;
     line-height: 1.1em;
+  }
+}
+
+.some-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  .icon-item {
+    color: $TEXT-COLOR;
+    transition: color $TRANSITION-PERIOD linear;
+    padding: 0 8px;
+
+    &:visited {
+      color: $TEXT-COLOR;
+    }
+    &:hover {
+      color: $TEXT-COLOR-HOVER;
+    }
+
+    i {
+      font-size: 25px;
+    }
   }
 }
 

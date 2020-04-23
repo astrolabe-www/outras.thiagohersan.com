@@ -24,14 +24,14 @@ collections:
 social:
   tumblr: ""
   pinterest: ""
-  instagram: ""
+  instagram: "https://www.instagram.com/algotypes/"
   twitter: ""
   facebook: ""
   youtube-play: ""
   vimeo: ""
   github: ""
   soundcloud: ""
-  envelope: ""
+  envelope: "mailto:algotypes@gmail.com"
 twitter_user: ""
 
 encoding: utf-8
