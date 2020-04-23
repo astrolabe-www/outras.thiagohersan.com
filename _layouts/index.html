@@ -24,7 +24,11 @@
 
       <div class="home-section-title">New</div>
       <div class="list-container">
-        {% assign newest = site.documents | sort:'date' | reverse %}
+        {% assign newest = site.documents | where:"tag","new" %}
+        {% unless newest.size > 2 %}
+          {% assign newest = site.documents | sort:'date' | reverse %}
+        {% endunless %}
+
         {% for p in newest limit:3 %}
           {% include list-item.html product=p %}
         {% endfor %}
