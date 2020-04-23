@@ -186,6 +186,7 @@ a {
   justify-content: center;
 
   .list-item-container {
+    position: relative;
     width: 100%;
     padding: 1%;
 
@@ -209,6 +210,18 @@ a {
       @include media-query(DESKTOP) {
         font-size: 14px;
       }
+    }
+
+    .list-item-tag {
+      padding: 4px 9px;
+      border-radius: 4px;
+      color: #fff;
+      background-color: #777;
+      font-size: 14px;
+      text-transform: uppercase;
+      position: absolute;
+      top: 10%;
+      left: 10%;
     }
   }
 }

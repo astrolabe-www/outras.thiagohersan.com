@@ -32,6 +32,9 @@
                href="{{ site.baseurl }}{{ p.url }}"></a>
             <a class="list-item-title"
                  href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+            {% if p.tag %}
+              <div class="list-item-tag">{{ p.tag }}</div>
+            {% endif %}
           </div>
         {% endfor %}
       </div>
@@ -51,6 +54,9 @@
                    href="{{ site.baseurl }}{{ p.url }}"></a>
                 <a class="list-item-title"
                    href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+                {% if p.tag %}
+                  <div class="list-item-tag">{{ p.tag }}</div>
+                {% endif %}
               </div>
             {% endfor %}
           </div>
