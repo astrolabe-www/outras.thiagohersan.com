@@ -1,9 +1,8 @@
 $TEXT-COLOR: #222;
-$TEXT-COLOR-LIGHT: #aaa;
-$LINK-COLOR-LIGHT: #eee;
 $TEXT-COLOR-HOVER: #aaa;
+$BACKGROUND-COLOR: #fff;
 
-$TRANSITION-PERIOD: 0.12s;
+$TRANSITION-PERIOD: 0.1s;
 $DESKTOP_WITH: 800px;
 
 @mixin media-query($canvas) {

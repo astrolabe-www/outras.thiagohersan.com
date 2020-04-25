@@ -277,15 +277,23 @@ a {
     min-width: 100px;
     padding: 16px 20px;
     margin: 16px auto;
-    border: #222 solid 1px;
+    border: $TEXT-COLOR solid 1px;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
     letter-spacing: .15em;
+    color: $TEXT-COLOR;
+    background-color: $BACKGROUND-COLOR;
+    transition: all $TRANSITION-PERIOD linear;
 
     @include media-query(DESKTOP) {
       width: 20%;
       min-width: 0;
+    }
+
+    &:hover {
+      background-color: $TEXT-COLOR;
+      color: $BACKGROUND-COLOR;
     }
   }
 
