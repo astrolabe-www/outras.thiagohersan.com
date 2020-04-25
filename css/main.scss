@@ -60,6 +60,9 @@ a {
       &:visited {
         color: $TEXT-COLOR;
       }
+      &:hover {
+        color: $TEXT-COLOR;
+      }
     }
   }
 
@@ -91,7 +94,7 @@ a {
   top: 0;
   left: -100vw;
   min-height: 200px;
-  background-color: #fff;
+  background-color: $BACKGROUND-COLOR;
   transition: left 0.8s ease-in-out;
 
   .mobile-menu-content-container {
@@ -110,17 +113,19 @@ a {
     transition: color $TRANSITION-PERIOD linear;
 
     &:hover {
-      color: $TEXT-COLOR-HOVER;
+      color: $TEXT-ACCENT-COLOR;
     }
   }
 }
 
 .mobile-menu-hidden {
   left: -100vw;
+  z-index: -100;
 }
 
 .mobile-menu-shown {
   left: 0;
+  z-index: 100;
 }
 
 .menu-content {
@@ -164,7 +169,7 @@ a {
         color: $TEXT-COLOR;
       }
       &:hover {
-        color: $TEXT-COLOR-HOVER;
+        color: $TEXT-ACCENT-COLOR;
       }
     }
   }
@@ -209,14 +214,16 @@ a {
 
     .list-item-tag {
       padding: 4px 9px;
+      border: $TEXT-ACCENT-COLOR solid 1px;
       border-radius: 4px;
-      color: #fff;
-      background-color: #777;
+      color: $TEXT-LIGHT-COLOR;
+      background-color: $TEXT-ACCENT-COLOR;
       font-size: 14px;
       text-transform: uppercase;
       position: absolute;
       top: 10%;
       left: 10%;
+      transition: all $TRANSITION-PERIOD linear;
     }
   }
 }
@@ -291,15 +298,19 @@ a {
       min-width: 0;
     }
 
+    &:visited {
+      color: $TEXT-COLOR;
+      background-color: $BACKGROUND-COLOR;
+    }
     &:hover {
+      color: $TEXT-LIGHT-COLOR;
       background-color: $TEXT-COLOR;
-      color: $BACKGROUND-COLOR;
     }
   }
 
   .list-hr {
     width: 40%;
-    border-bottom: 2px #666 solid;
+    border-bottom: 2px $TEXT-ACCENT-COLOR solid;
     margin: 48px auto 0;
   }
 }
@@ -450,7 +461,8 @@ a {
 
 .footer {
   padding: 64px 16px;
-  background-color: #ccc;
+  background-color: $TEXT-ACCENT-COLOR;
+  color: $TEXT-LIGHT-COLOR;
   text-align: center;
 
   .footer-title {
@@ -480,15 +492,15 @@ a {
   justify-content: center;
 
   .icon-item {
-    color: $TEXT-COLOR;
+    color: $TEXT-LIGHT-COLOR;
     transition: color $TRANSITION-PERIOD linear;
     padding: 0 8px;
 
     &:visited {
-      color: $TEXT-COLOR;
+      color: $TEXT-LIGHT-COLOR;
     }
     &:hover {
-      color: $TEXT-COLOR-HOVER;
+      color: $TEXT-COLOR;
     }
 
     i {
