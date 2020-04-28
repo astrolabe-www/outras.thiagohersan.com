@@ -1,5 +1,5 @@
 ---
 layout: index
-title: Title
+title: 'outra.s'
 permalink: /
 ---

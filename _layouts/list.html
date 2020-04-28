@@ -16,9 +16,9 @@
     {% assign posts_ = site.collections | where:"label",collection | first %}
     {% assign posts = posts_.docs %}
 
-    {% unless posts %}
+    {% if page.slug == 'new' %}
       {% assign posts = site.documents | where:"tag","new" %}
-    {% endunless %}
+    {% endif %}
 
     <div class="list">
       <div class="list-title">{{ page.title }}</div>

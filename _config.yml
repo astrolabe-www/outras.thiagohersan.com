@@ -1,9 +1,9 @@
-name: "Title"
-keywords: "health, wellbeing, well-being, lifestyle, life-style"
-description: "All the signals that meet your needs"
+name: 'outra.s'
+keywords: 'health, wellbeing, well-being, lifestyle, life-style'
+description: 'All the signals that meet your needs'
 
-url: https://astrolabe-www.github.io
-baseurl: "/title"
+url: https://outras.ml
+baseurl: ''
 port: 45666
 permalink: /:title/
 
