@@ -13,14 +13,19 @@
       {% assign collection = page.title | slugify %}
     {% endif %}
 
-    {% assign posts = site.collections | where:"label",collection | first %}
+    {% assign posts_ = site.collections | where:"label",collection | first %}
+    {% assign posts = posts_.docs %}
+
+    {% unless posts %}
+      {% assign posts = site.documents | where:"tag","new" %}
+    {% endunless %}
 
     <div class="list">
       <div class="list-title">{{ page.title }}</div>
       <div class="list-description">{{ content }}</div>
 
       <div class="list-container">
-        {% for p in posts.docs reversed %}
+        {% for p in posts reversed %}
           {% include list-item.html product=p %}
         {% endfor %}
       </div>
