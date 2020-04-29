@@ -30,7 +30,8 @@ a {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 24px;
+  padding: 12px 24px;
+  background-color: $BACKGROUND-COLOR;
 
   @include media-query(DESKTOP) {
     padding: 20px 2.5%;
@@ -86,6 +87,18 @@ a {
       display: block;
     }
   }
+}
+
+.top-bar-hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -100;
+}
+
+.top-bar-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 .mobile-menu {

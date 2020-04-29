@@ -1,0 +1,10 @@
+<div id="{{ include.prefix }}menu-open" class="menu-open">
+  <i class="fa fa-bars"></i>
+</div>
+<div class="main-title"><a href="{{ site.baseurl }}/">{{ site.name | uppercase }}</a></div>
+<div class="menu-container">{% include menu-content.html %}</div>
+
+<div id="{{ include.prefix }}mobile-menu" class="mobile-menu">
+  <div id="{{ include.prefix }}menu-close" class="menu-close"><i class="fa fa-times"></i></div>
+  <div class="mobile-menu-content-container">{% include menu-content.html %}</div>
+</div>

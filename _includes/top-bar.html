@@ -1,12 +1,7 @@
-<section class="top-bar">
-  <div id="menu-open" class="menu-open">
-    <i class="fa fa-bars"></i>
-  </div>
-  <div class="main-title"><a href="{{ site.baseurl }}/">{{ site.name | uppercase }}</a></div>
-  <div class="menu-container">{% include menu-content.html %}</div>
+<section class="top-bar top-bar-hidden">
+  {% include top-bar-content.html prefix="hidden-"%}
+</section>
 
-  <div id="mobile-menu" class="mobile-menu">
-    <div id="menu-close" class="menu-close"><i class="fa fa-times"></i></div>
-    <div class="mobile-menu-content-container">{% include menu-content.html %}</div>
-  </div>
+<section class="top-bar top-bar-fixed">
+  {% include top-bar-content.html %}
 </section>
