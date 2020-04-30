@@ -39,6 +39,21 @@
               {% endif %}
             {% endfor %}
           </div>
+          <div class="product-cart">
+            <div class="product-cart-header">${{ page.price }} USD</div>
+            <div class="product-cart-buttons-container">
+              <div id="product-add-button"
+                   class="product-cart-button"
+                   data-price="{{ page.price }}"
+                   data-title="{{ page.title }}"
+                   data-url="{{ site.baseurl }}{{ page.url }}"
+                   data-cover="{{ site.baseurl }}{{ page.cover }}"
+                   data-id="{{ page.Article }}">Add to cart</div>
+              <a id="product-view-cart"
+                 class="product-cart-link product-cart-link-disable"
+                 href="{{ site.baseurl }}/cart/">View Cart</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

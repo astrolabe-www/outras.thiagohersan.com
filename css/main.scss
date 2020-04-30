@@ -126,7 +126,7 @@ a {
     transition: color $TRANSITION-PERIOD linear;
 
     &:hover {
-      color: $TEXT-ACCENT-COLOR;
+      color: $TEXT-MEDIUM-COLOR;
     }
   }
 }
@@ -182,7 +182,7 @@ a {
         color: $TEXT-COLOR;
       }
       &:hover {
-        color: $TEXT-ACCENT-COLOR;
+        color: $TEXT-MEDIUM-COLOR;
       }
     }
   }
@@ -328,7 +328,7 @@ a {
   }
 }
 
-.list {
+.list, .cart {
   width: 100%;
   padding: 0 2%;
   box-sizing: border-box;
@@ -337,7 +337,7 @@ a {
       margin-top: 16px;
   }
 
-  .list-title {
+  .list-title, .cart-title {
     text-align: center;
     padding: 16px 0;
     font-size: 18px;
@@ -448,9 +448,6 @@ a {
         box-sizing: border-box;
         width: 100%;
         text-align: justify;
-        @include media-query(DESKTOP) {
-          padding-right: 40px;
-        }
       }
 
       .product-specs {
@@ -466,6 +463,142 @@ a {
           .product-spec-title {
             width: 25%;
           }
+        }
+      }
+
+      .product-cart {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 16px auto;
+        border: $TEXT-MEDIUM-COLOR solid 1px;
+        border-radius: 3px;
+
+        .product-cart-header {
+          box-sizing: border-box;
+          width: 100%;
+          color: $TEXT-LIGHT-COLOR;
+          background-color: $TEXT-MEDIUM-COLOR;
+          padding: 16px;
+          text-align: right;
+          letter-spacing: .15em;
+        }
+
+        .product-cart-buttons-container {
+          text-align: center;
+          margin-bottom: 16px;
+
+          .product-cart-button {
+            display: block;
+            box-sizing: border-box;
+            width: 90%;
+            min-width: 100px;
+            padding: 16px 20px;
+            margin: 16px auto;
+            border: $TEXT-COLOR solid 1px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: $TEXT-COLOR;
+            background-color: $BACKGROUND-COLOR;
+            transition: all $TRANSITION-PERIOD linear;
+            cursor: pointer;
+
+            &:visited {
+              color: $TEXT-COLOR;
+              background-color: $BACKGROUND-COLOR;
+            }
+            &:hover {
+              color: $TEXT-LIGHT-COLOR;
+              background-color: $TEXT-COLOR;
+            }
+          }
+          .product-cart-button-disable {
+            opacity: 25%;
+            cursor: default;
+            pointer-events: none;
+          }
+
+          .product-cart-link {
+            display: inline;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: $TEXT-ACCENT-COLOR;
+            &:visited {
+              color: $TEXT-ACCENT-COLOR;
+            }
+            &:hover {
+              color: $TEXT-COLOR;
+            }
+          }
+          .product-cart-link-disable {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cart {
+  .cart-list-container {
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 auto 32px;
+    padding: 32px;
+    border: 1px $TEXT-ACCENT-COLOR solid;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+
+    @include media-query(DESKTOP) {
+      width: 70%;
+      font-size: 16px;
+    }
+
+    .cart-item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      border-bottom: 1px $TEXT-ACCENT-COLOR solid;
+
+      .cart-item-cover {
+        width: 25%;
+        padding-bottom: 30%;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        @include media-query(DESKTOP) {
+          padding-bottom: 20%;
+        }
+      }
+      .cart-item-cover-spacer {
+        width: 25%;
+      }
+
+      .cart-item-title {
+        width: 33%;
+        padding-bottom: 8px;
+      }
+
+      .cart-item-price {
+        width: 25%;
+        padding-bottom: 8px;
+      }
+
+      .cart-item-remove {
+        padding: 4px 0;
+        font-size: 9px;
+        cursor: pointer;
+
+        @include media-query(DESKTOP) {
+          font-size: 11px;
         }
       }
     }
