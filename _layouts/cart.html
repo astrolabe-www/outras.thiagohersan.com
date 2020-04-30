@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+    {% include meta.html %}
+  </head>
+  <body>
+    {% include top-bar.html %}
+
+    <div class="cart">
+      <div class="cart-title">{{ page.title }}</div>
+      <div id="cart-list" class="cart-list-container"></div>
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>
