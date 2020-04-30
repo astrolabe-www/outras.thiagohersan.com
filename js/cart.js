@@ -8,7 +8,7 @@ function generateCart() {
   ['cover', 'title', 'price'].forEach(function(d) {
     const nDiv = document.createElement('div');
 
-    if(d === 'cover') {
+    if (d === 'cover') {
       nDiv.classList.add('cart-item-' + d + '-spacer');
     } else {
       nDiv.classList.add('cart-item-' + d);
@@ -45,6 +45,7 @@ function generateCart() {
       } else if (d === 'price') {
         nDiv = document.createElement('div');
         nDiv.innerHTML = p[d];
+        nDiv.innerHTML = '$0.00';
       }
 
       nDiv.classList.add('cart-item-' + d);
@@ -60,13 +61,16 @@ function generateCart() {
   ['cover', 'title', 'price'].forEach(function(d) {
     const nDiv = document.createElement('div');
     nDiv.classList.add('cart-item-' + d);
-    if(d === 'price') {
+    if (d === 'price') {
       nDiv.innerHTML = cartLS.total();
+      nDiv.innerHTML = '$0.00';
+    } else if (d === 'title') {
+      nDiv.innerHTML = 'TOTAL';
     }
     total.appendChild(nDiv);
   });
 
-  if(cartLS.list().length > 0) cartList.appendChild(total);
+  if (cartLS.list().length > 0) cartList.appendChild(total);
 }
 
 window.addEventListener('load', function() {
