@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
   viewButton = document.getElementById('product-view-cart');
 
   product.id = addButton.getAttribute('data-id');
-  product.price = addButton.getAttribute('data-price') || 0.000001;
+  product.price = addButton.getAttribute('data-price') || 0.00001;
   product.title = addButton.getAttribute('data-title');
   product.cover = addButton.getAttribute('data-cover');
   product.url = addButton.getAttribute('data-url');
