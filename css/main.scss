@@ -239,6 +239,12 @@ a {
       transition: all $TRANSITION-PERIOD linear;
     }
   }
+
+  .list-item-container.last-true {
+    @include media-query(DESKTOP) {
+      display: none;
+    }
+  }
 }
 
 .home {
