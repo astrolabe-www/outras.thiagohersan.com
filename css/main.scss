@@ -474,13 +474,30 @@ a {
         border-radius: 3px;
 
         .product-cart-header {
+          position: relative;
           box-sizing: border-box;
           width: 100%;
-          color: $TEXT-LIGHT-COLOR;
           background-color: $TEXT-MEDIUM-COLOR;
-          padding: 16px;
-          text-align: right;
-          letter-spacing: .15em;
+          color: $TEXT-MEDIUM-COLOR;
+
+          .product-price {
+            box-sizing: border-box;
+            width: 100%;
+            color: $TEXT-LIGHT-COLOR;
+            background-color: rgba(0,0,0,0);
+            padding: 16px;
+            text-align: right;
+            letter-spacing: .15em;
+            user-select: none;
+          }
+
+          .product-price-relative {
+            position: relative;
+          }
+          .product-price-absolute {
+            position: absolute;
+            top: 0;
+          }
         }
 
         .product-cart-buttons-container {
@@ -590,6 +607,15 @@ a {
       .cart-item-price {
         width: 25%;
         padding-bottom: 8px;
+        position: relative;
+
+        .price-absolute {
+          position: absolute;
+          top: 0;
+        }
+        .price-relative {
+          position: relative;
+        }
       }
 
       .cart-item-remove {

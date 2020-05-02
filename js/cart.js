@@ -44,8 +44,15 @@ function generateCart() {
         nDiv.appendChild(rDiv);
       } else if (d === 'price') {
         nDiv = document.createElement('div');
-        nDiv.innerHTML = p[d];
-        nDiv.innerHTML = '$0.00';
+
+        for (let i = 0; i < 3; i++) {
+          let v = (i + 3);
+          priceDiv = document.createElement('div');
+          priceDiv.innerHTML = `$${v % 10}${v % 10}${(v + 1) % 10}${(v + 2) % 10}.${(v + 3) % 10}${(v + 4) % 10}`;
+          priceDiv.classList.add('price');
+          priceDiv.classList.add('price-' + ((i == 0) ? 'relative' : 'absolute'));
+          nDiv.appendChild(priceDiv);
+        }
       }
 
       nDiv.classList.add('cart-item-' + d);
@@ -62,8 +69,14 @@ function generateCart() {
     const nDiv = document.createElement('div');
     nDiv.classList.add('cart-item-' + d);
     if (d === 'price') {
-      nDiv.innerHTML = cartLS.total();
-      nDiv.innerHTML = '$0.00';
+      for (let i = 0; i < 3; i++) {
+        let v = (i + 7);
+        priceDiv = document.createElement('div');
+        priceDiv.innerHTML = `$${v % 10}${v % 10}${(v + 1) % 10}${(v + 2) % 10}.${(v + 3) % 10}${(v + 4) % 10}`;
+        priceDiv.classList.add('price');
+        priceDiv.classList.add('price-' + ((i == 0) ? 'relative' : 'absolute'));
+        nDiv.appendChild(priceDiv);
+      }
     } else if (d === 'title') {
       nDiv.innerHTML = 'TOTAL';
     }
