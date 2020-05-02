@@ -612,9 +612,11 @@ a {
         .price-absolute {
           position: absolute;
           top: 0;
+          user-select: none;
         }
         .price-relative {
           position: relative;
+          user-select: none;
         }
       }
 
