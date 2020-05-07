@@ -454,6 +454,9 @@ a {
         box-sizing: border-box;
         width: 100%;
         text-align: justify;
+        img {
+          width: 100%;
+        }
       }
 
       .product-specs {
