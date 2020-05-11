@@ -2,7 +2,7 @@
 layout: list
 title: Relative Intensity Collection
 slug: relative-intensity
-permalink: /relative-intensity
+permalink: /relative-intensity/
 menu: true
 ---
 The process of transmitting and receiving electromagnetic signals is very physical: matter moves in rhythms syncopated by the speed of light and the dimensions of the materials it traverses. Antennas are designed with specific shapes and sizes optimized for particular types of transmissions and their corresponding frequencies. 

@@ -1,7 +1,7 @@
 ---
 layout: list
 title: Algotypes
-permalink: /algotypes
+permalink: /algotypes/
 menu: true
 ---
 Algotypes are interventions in the 2.4GHz WiFi band.
