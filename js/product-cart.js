@@ -3,6 +3,7 @@ let viewButton;
 let product = {};
 
 function addToCart() {
+  product.price = addButton.getAttribute('data-price') || 1000.00;
   cartLS.add(product);
   productInCart();
 }
@@ -17,7 +18,6 @@ window.addEventListener('load', function() {
   viewButton = document.getElementById('product-view-cart');
 
   product.id = addButton.getAttribute('data-id');
-  product.price = addButton.getAttribute('data-price') || 0.00001;
   product.title = addButton.getAttribute('data-title');
   product.cover = addButton.getAttribute('data-cover');
   product.url = addButton.getAttribute('data-url');

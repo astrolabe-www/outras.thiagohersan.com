@@ -6,7 +6,10 @@ xmlHttp.onreadystatechange = function(err) {
     const res = JSON.parse(xmlHttp.responseText);
     if(res.success) {
       const myPrice = res.data.price.toFixed(2);
-      document.getElementById('my-product-price').innerHTML = `${myPrice} USD`;
+      const myPriceElement = document.getElementById('my-product-price');
+      const addButtonElement = document.getElementById('product-add-button');
+      myPriceElement.innerHTML = `${myPrice} USD`;
+      addButtonElement.setAttribute('data-price', myPrice);
     }
   }
 };
