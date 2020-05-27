@@ -470,7 +470,7 @@ a {
           flex-direction: row;
 
           .product-spec-title {
-            width: 25%;
+            width: 33%;
           }
         }
       }
@@ -498,14 +498,14 @@ a {
             text-align: right;
             letter-spacing: .15em;
             user-select: none;
+
+            .product-price-loader {
+              margin-left: 80%;
+            }
           }
 
           .product-price-relative {
             position: relative;
-          }
-          .product-price-absolute {
-            position: absolute;
-            top: 0;
           }
         }
 
@@ -752,4 +752,18 @@ a {
       width: 0;
     }
   }
+}
+
+.loader {
+  border: 2px solid $BACKGROUND-COLOR;
+  border-top: 2px solid $TEXT-COLOR;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

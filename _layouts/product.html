@@ -7,7 +7,7 @@
   <body>
     {% include top-bar.html %}
 
-    <div class="product">
+    <div id="my-product" class="product" data-article="{{ page.Article }}">
       <div class="product-title">{{ page.title }}</div>
 
       <div class="product-container">
@@ -41,9 +41,9 @@
           </div>
           <div class="product-cart">
             <div class="product-cart-header">
-              <div class="product-price product-price-relative">xxxx.xx USD</div>
-              <div class="product-price product-price-absolute">8888.88 USD</div>
-              <div class="product-price product-price-absolute">11234.56 USD</div>
+              <div id="my-product-price" class="product-price product-price-relative">
+                <div class="product-price-loader loader"></div>
+              </div>
             </div>
             <div class="product-cart-buttons-container">
               <div id="product-add-button"
