@@ -3,7 +3,7 @@ let viewButton;
 let product = {};
 
 function addToCart() {
-  product.price = addButton.getAttribute('data-price') || 1000.00;
+  product.price = parseFloat(addButton.getAttribute('data-price')) || 1000.00;
   cartLS.add(product);
   productInCart();
 }

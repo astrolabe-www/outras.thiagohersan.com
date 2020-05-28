@@ -44,15 +44,10 @@ function generateCart() {
         nDiv.appendChild(rDiv);
       } else if (d === 'price') {
         nDiv = document.createElement('div');
-
-        for (let i = 0; i < 3; i++) {
-          let v = (i + 3);
-          priceDiv = document.createElement('div');
-          priceDiv.innerHTML = `$${v % 10}${v % 10}${(v + 1) % 10}${(v + 2) % 10}.${(v + 3) % 10}${(v + 4) % 10}`;
-          priceDiv.classList.add('price');
-          priceDiv.classList.add('price-' + ((i == 0) ? 'relative' : 'absolute'));
-          nDiv.appendChild(priceDiv);
-        }
+        priceDiv = document.createElement('div');
+        priceDiv.innerHTML = `${p.price.toFixed(2)} USD`;
+        priceDiv.classList.add('price');
+        nDiv.appendChild(priceDiv);
       }
 
       nDiv.classList.add('cart-item-' + d);
@@ -69,14 +64,10 @@ function generateCart() {
     const nDiv = document.createElement('div');
     nDiv.classList.add('cart-item-' + d);
     if (d === 'price') {
-      for (let i = 0; i < 3; i++) {
-        let v = (i + 7);
-        priceDiv = document.createElement('div');
-        priceDiv.innerHTML = `$${v % 10}${v % 10}${(v + 1) % 10}${(v + 2) % 10}.${(v + 3) % 10}${(v + 4) % 10}`;
-        priceDiv.classList.add('price');
-        priceDiv.classList.add('price-' + ((i == 0) ? 'relative' : 'absolute'));
-        nDiv.appendChild(priceDiv);
-      }
+      priceDiv = document.createElement('div');
+      priceDiv.innerHTML = `${cartLS.total().toFixed(2)} USD`;
+      priceDiv.classList.add('price');
+      nDiv.appendChild(priceDiv);
     } else if (d === 'title') {
       nDiv.innerHTML = 'TOTAL';
     }
