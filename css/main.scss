@@ -200,8 +200,11 @@ a {
 
   .list-item-container {
     position: relative;
-    width: 100%;
+    width: 45%;
     padding: 1%;
+    @include media-query(DESKTOP) {
+      width: 30%;
+    }
 
     .list-item-image {
       display: block;
@@ -247,6 +250,15 @@ a {
   }
 }
 
+.product-recommendations {
+  .list-item-container.last-true {
+    display: none;
+    @include media-query(DESKTOP) {
+      display: block;
+    }
+  }
+}
+
 .home {
   width: 100%;
   margin: 0 auto;
@@ -268,33 +280,12 @@ a {
     }
   }
 
-  .home-section-title {
-    text-align: center;
-    padding: 40px 0 0;
-    font-size: 18px;
-    font-weight: 200;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-
-      @include media-query(DESKTOP) {
-        font-size: 32px;
-        padding: 40px 0;
-      }
-  }
-
   .home-image-banner {
     width: 100%;
     padding-bottom: 40%;
     margin-top: 96px;
     background-position: center center;
     background-size: cover;
-  }
-
-  .list-item-container {
-    width: 45%;
-    @include media-query(DESKTOP) {
-      width: 30%;
-    }
   }
 
   .list-link {
@@ -332,6 +323,20 @@ a {
     border-bottom: 2px $TEXT-ACCENT-COLOR solid;
     margin: 48px auto 0;
   }
+}
+
+.home-section-title {
+  text-align: center;
+  padding: 40px 0 0;
+  font-size: 18px;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+
+    @include media-query(DESKTOP) {
+      font-size: 32px;
+      padding: 40px 0;
+    }
 }
 
 .list, .cart {
@@ -394,6 +399,7 @@ a {
   }
   .product-container {
     width: 100%;
+    margin-bottom: 64px;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -401,6 +407,7 @@ a {
     justify-content: flex-start;
 
     @include media-query(DESKTOP) {
+      margin-bottom: 64px;
       flex-direction: row;
     }
 

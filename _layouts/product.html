@@ -59,6 +59,19 @@
           </div>
         </div>
       </div>
+
+      <div class="product-recommendations">
+        {% assign my_col = site.collections | where:"label",page.collection | first %}
+        {% assign posts = my_col.docs | where_exp:"post","post.title != page.title" | sample: 3 %}
+
+        <div class="home-section-title">Recommendations</div>
+        <div class="list-container">
+          {% for p in posts %}
+            {% assign lastclass = "last-" | append:forloop.last %}
+            {% include list-item.html product=p displayclass=lastclass %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
 
     {% include footer.html %}
