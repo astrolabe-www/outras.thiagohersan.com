@@ -548,6 +548,9 @@ a {
             cursor: default;
             pointer-events: none;
           }
+          .product-cart-button-hide {
+            display: none;
+          }
 
           .product-cart-link {
             display: inline;
