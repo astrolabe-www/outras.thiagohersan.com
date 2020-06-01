@@ -1,6 +1,21 @@
 function generateCart() {
   const cartList = document.getElementById('cart-list');
+  const cartRecs = document.getElementById('empty-cart-recommendations');
+
   cartList.innerHTML = '';
+
+  if (cartLS.list().length < 1) {
+    const nDiv = document.createElement('div');
+    nDiv.classList.add('empty-cart-message');
+    nDiv.innerHTML = 'Your cart is empty';
+
+    cartList.appendChild(nDiv);
+    cartRecs.style.display = 'block';
+
+    return;
+  } else {
+    cartRecs.style.display = 'none';
+  }
 
   const header = document.createElement('div');
   header.classList.add('cart-item');

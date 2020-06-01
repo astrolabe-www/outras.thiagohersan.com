@@ -12,6 +12,17 @@
       <div id="cart-list" class="cart-list-container"></div>
     </div>
 
+    <div id="empty-cart-recommendations" class="product-recommendations">
+      {% assign posts = site.documents | where:"tag","new" | sample: 3 %}
+      <div class="home-section-title">New Items</div>
+      <div class="list-container">
+        {% for p in posts %}
+          {% assign lastclass = "last-" | append:forloop.last %}
+          {% include list-item.html product=p displayclass=lastclass %}
+        {% endfor %}
+      </div>
+    </div>
+
     {% include footer.html %}
   </body>
 </html>

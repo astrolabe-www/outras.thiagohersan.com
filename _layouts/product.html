@@ -66,7 +66,7 @@
         {% assign my_col = site.collections | where:"label",page.collection | first %}
         {% assign posts = my_col.docs | where_exp:"post","post.title != page.title" | sample: 3 %}
 
-        <div class="home-section-title">Recommendations</div>
+        <div class="home-section-title">Related</div>
         <div class="list-container">
           {% for p in posts %}
             {% assign lastclass = "last-" | append:forloop.last %}
