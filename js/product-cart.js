@@ -1,7 +1,7 @@
+let product = {};
 let addButton;
 let removeButton;
 let viewButton;
-let product = {};
 
 function addToCart() {
   product.price = parseFloat(addButton.getAttribute('data-price')) || 1000.00;
