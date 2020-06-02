@@ -1,4 +1,3 @@
-let foo;
 let addButton;
 let removeButton;
 let viewButton;
