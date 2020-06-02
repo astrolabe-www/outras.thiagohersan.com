@@ -698,7 +698,6 @@ a {
 
   .footer-title {
     margin: 0 auto;
-    padding-bottom: 6px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -718,7 +717,7 @@ a {
 
   .footer-hr {
     width: 200px;
-    margin: 0 auto;
+    margin: 12px auto 0;
     border-bottom: 2px $TEXT-LIGHT-COLOR solid;
   }
 
