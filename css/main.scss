@@ -339,6 +339,32 @@ a {
     }
 }
 
+.post {
+  .post-image-banner {
+    width: 100%;
+    padding-bottom: 33%;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .list-hr {
+    width: 40%;
+    border-bottom: 2px $TEXT-ACCENT-COLOR solid;
+    margin: 0 auto;
+  }
+
+  .post-text-container {
+    width: 90%;
+    margin: 36px auto 0;
+    box-sizing: border-box;
+
+    @include media-query(DESKTOP) {
+      width: 80%;
+      margin: 64px auto 0;
+    }
+  }
+}
+
 .list, .cart {
   width: 100%;
   padding: 0 2%;
@@ -365,6 +391,10 @@ a {
     box-sizing: border-box;
     margin: 36px auto;
     width: 90%;
+
+    @include media-query(DESKTOP) {
+      width: 80%;
+    }
   }
 
   .list-item-container {
@@ -668,21 +698,49 @@ a {
 
   .footer-title {
     margin: 0 auto;
+    padding-bottom: 6px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: .6em;
     line-height: 1em;
+
+    &::before {
+      content: ". ";
+      color: $TEXT-ACCENT-COLOR;
+    }
+    &::after {
+      content: ".";
+      color: $TEXT-ACCENT-COLOR;
+    }
+  }
+
+  .footer-hr {
+    width: 200px;
+    margin: 0 auto;
+    border-bottom: 2px $TEXT-LIGHT-COLOR solid;
   }
 
   .footer-text {
     margin: 0 auto;
     max-width: 500px;
-    padding: 24px;
+    padding: 12px;
     font-size: 20px;
     font-weight: 200;
     line-height: 1.1em;
+  }
+
+  .footer-link-container {
+    padding: 8px 0 24px;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+
+    .footer-link {
+      display: block;
+      padding: 4px 0;
+      text-decoration: none;
+    }
   }
 }
 

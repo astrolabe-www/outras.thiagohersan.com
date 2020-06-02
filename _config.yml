@@ -5,7 +5,7 @@ description: 'Much more than just antennas'
 url: https://outras.ml
 baseurl: ''
 port: 45666
-permalink: /:title/
+permalink: /blog/:title/
 
 collections:
   relative-intensity:

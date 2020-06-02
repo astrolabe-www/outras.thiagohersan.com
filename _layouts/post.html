@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+    {% include meta.html %}
+  </head>
+  <body>
+    {% include top-bar.html %}
+
+    <div class="post">
+
+      {% assign cover = page.cover | default: "assets/algotypes/algotypes_02.jpg" %}
+
+      <div class="post-image-banner"
+           style="background-image: url('{{ site.baseurl }}/{{ cover }}')"></div>
+
+      <div class="home-section-title">{{ page.title }}</div>
+      <div class="list-hr"></div>
+
+      <div class="post-text-container">
+        {{ content }}
+      </div>
+
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>
