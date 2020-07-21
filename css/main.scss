@@ -357,9 +357,11 @@ a {
     width: 90%;
     margin: 36px auto 0;
     box-sizing: border-box;
+    line-height: 1.75em;
 
     @include media-query(DESKTOP) {
       width: 80%;
+      max-width: 720px;
       margin: 64px auto 0;
     }
   }
@@ -391,6 +393,7 @@ a {
     box-sizing: border-box;
     margin: 36px auto;
     width: 90%;
+    line-height: 1.75em;
 
     @include media-query(DESKTOP) {
       width: 80%;
