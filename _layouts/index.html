@@ -24,7 +24,7 @@
 
       <div class="home-section-title">New</div>
       <div class="list-container">
-        {% assign newest = site.documents | where:"tag","new" %}
+        {% assign newest = site.documents | where:"tag","new" | sort:'date' | reverse %}
         {% unless newest.size > 2 %}
           {% assign newest = site.documents | where:"layout","product" | sort:'date' | reverse %}
         {% endunless %}
