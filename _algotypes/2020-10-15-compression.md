@@ -8,4 +8,4 @@ Article: '476015'
 Collection: 'Algotypes'
 Size: '65 x 55 x 90 mm'
 ---
-Bring out your inner fears and desires. Don\'t be subtle. They aren\'t as numerous or complicated as you think.
+Bring out your inner fears and desires. Don't be subtle. They aren't as numerous or complicated as you think.
