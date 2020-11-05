@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+    {% include meta.html %}
+  </head>
+  <body>
+    {% include top-bar.html %}
+
+    <div class="post">
+
+      {% assign cover = page.cover | default: "assets/algotypes/algotypes_02.jpg" %}
+
+      <div class="home-section-title">{{ page.title }}</div>
+      <div class="list-hr"></div>
+
+      <div class="graph-container">
+        {{ content }}
+      </div>
+
+    </div>
+
+    {% include footer.html %}
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+  <script src="{{ site.baseurl }}/js/graphs.js"></script>
+</html>

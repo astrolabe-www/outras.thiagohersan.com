@@ -845,3 +845,17 @@ a {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.graph-container {
+  width: 90%;
+  box-sizing: border-box;
+  margin: 36px auto 0;
+
+  @include media-query(DESKTOP) {
+    margin: 64px auto 0;
+  }
+
+  .graphs {
+    width: 100%;
+  }
+}
