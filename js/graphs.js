@@ -37,7 +37,7 @@ function initGraph(response) {
 
 function averageSignal(signal) {
   const averages = new Array(signal.length);
-  const avgVals = new Array(64);
+  const avgVals = new Array(32);
   let avgSum = 0;
   let currAvgIndex = 0;
 
