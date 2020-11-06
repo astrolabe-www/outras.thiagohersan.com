@@ -57,6 +57,7 @@ function averageSignal(signal) {
 }
 
 function drawGraph() {
+  const NUM_POINTS = 120;
   const mSignal = allSignals.filter(s => s.name === mSignalSelector.value)[0] || {};
   const mVals = averageSignal(mSignal.values);
 
@@ -67,9 +68,9 @@ function drawGraph() {
   lastVal.y = height - mVals[nowIndex] * height;
 
   background(255);
-  for(let p = 1; p < width; p++) {
+  for(let p = 1; p < NUM_POINTS; p++) {
     const i = ((nowIndex + mVals.length) - p) % mVals.length;
-    const x = width - p - 1;
+    const x = width - (width * ((p - 1) / NUM_POINTS));
     const y = height - mVals[i] * height;
 
     line(lastVal.x, lastVal.y, x, y);
