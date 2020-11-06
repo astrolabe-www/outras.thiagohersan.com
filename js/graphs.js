@@ -1,6 +1,6 @@
 let allSignals;
-const signalsURL = 'https://outras-api.herokuapp.com/signals/';
-//const signalsURL = '../assets/json/outras.json';
+const serverSignals = 'https://outras-api.herokuapp.com/signals/';
+const localSignals = '../assets/json/outras.json';
 
 const mGraphs = document.getElementById('mgraphs');
 const mSignalSelector = document.getElementById('my-signal-selector');
@@ -19,6 +19,7 @@ function setup() {
   noLoop();
   background(255);
   stroke(0);
+  const signalsURL = (window.location.href.includes('//outras.ml')) ? serverSignals : localSignals;
   loadJSON(signalsURL, initGraph);
 }
 
