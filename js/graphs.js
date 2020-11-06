@@ -1,6 +1,6 @@
 let allSignals;
-//const signalsURL = 'https://outras-api.herokuapp.com/signals/';
-const signalsURL = '../assets/json/outras.json';
+const signalsURL = 'https://outras-api.herokuapp.com/signals/';
+//const signalsURL = '../assets/json/outras.json';
 
 const mGraphs = document.getElementById('mgraphs');
 const mSignalSelector = document.getElementById('my-signal-selector');
