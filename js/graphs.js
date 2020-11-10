@@ -9,11 +9,11 @@ mSignalSelector.addEventListener('change', drawGraph);
 
 function windowResized() {
   const mGraphs = document.getElementById('mgraphs');
-  resizeCanvas(mGraphs.offsetWidth, 0.5625 * mGraphs.offsetWidth);
+  resizeCanvas(mGraphs.offsetWidth, 0.333 * mGraphs.offsetWidth);
 }
 
 function setup() {
-  const mCanvas = createCanvas(mGraphs.offsetWidth, 0.5625 * mGraphs.offsetWidth);
+  const mCanvas = createCanvas(mGraphs.offsetWidth, 0.333 * mGraphs.offsetWidth);
   mCanvas.parent('mgraphs');
   smooth();
   noLoop();
@@ -60,24 +60,30 @@ function averageSignal(signal) {
 function drawGraph() {
   const NUM_POINTS = 120;
   const mSignal = allSignals.filter(s => s.name === mSignalSelector.value)[0] || {};
-  const mVals = averageSignal(mSignal.values);
+  const avgVals = averageSignal(mSignal.values);
 
   const nowIndex = (60 * (new Date()).getHours()) + (new Date()).getMinutes();
+  const firstIndex = ((nowIndex + avgVals.length) - NUM_POINTS - 1) % avgVals.length;
+  const lastIndex = ((nowIndex + avgVals.length) + 1) % avgVals.length;
+  const mVals = avgVals.slice(firstIndex, lastIndex);
+
+  const mMin = Math.min(...mVals);
+  const mMax = Math.max(...mVals);
+
   const lastVal = {};
 
-  lastVal.x = width - 1;
-  lastVal.y = map(mVals[nowIndex], mSignal.min, mSignal.max, 0.9 * height, 0.1 * height, true);
-
   background(255);
-  for(let p = 1; p < NUM_POINTS; p++) {
-    const i = ((nowIndex + mVals.length) - p) % mVals.length;
-    const x = width - (width * ((p - 1) / NUM_POINTS));
-    const y = map(mVals[i], mSignal.min, mSignal.max, 0.9 * height, 0.1 * height, true);
+  mVals.forEach((v, i) => {
+    const x = map(i, 0, mVals.length - 1, 0, width);
+    const y = map(v, mMin, mMax, 0.9 * height, 0.1 * height, true);
+
+    lastVal.x = lastVal.x || 0;
+    lastVal.y = lastVal.y || y;
 
     line(lastVal.x, lastVal.y, x, y);
 
     lastVal.x = x;
     lastVal.y = y;
-  }
+  });
   setTimeout(drawGraph, 60e3);
 }
