@@ -25,6 +25,7 @@ function setup() {
 
 function initGraph(response) {
   allSignals = response.data.signals;
+  allSignals.sort((a, b) => b.name.localeCompare(a.name));
 
   allSignals.forEach(s => {
     const mS = document.createElement('option');
@@ -65,13 +66,13 @@ function drawGraph() {
   const lastVal = {};
 
   lastVal.x = width - 1;
-  lastVal.y = height - mVals[nowIndex] * height;
+  lastVal.y = map(mVals[nowIndex], mSignal.min, mSignal.max, 0.9 * height, 0.1 * height, true);
 
   background(255);
   for(let p = 1; p < NUM_POINTS; p++) {
     const i = ((nowIndex + mVals.length) - p) % mVals.length;
     const x = width - (width * ((p - 1) / NUM_POINTS));
-    const y = height - mVals[i] * height;
+    const y = map(mVals[i], mSignal.min, mSignal.max, 0.9 * height, 0.1 * height, true);
 
     line(lastVal.x, lastVal.y, x, y);
 
