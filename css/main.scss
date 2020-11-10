@@ -755,7 +755,7 @@ a {
   .icon-item {
     color: $TEXT-LIGHT-COLOR;
     transition: color $TRANSITION-PERIOD linear;
-    padding: 0 8px;
+    padding: 12px 8px;
 
     &:visited {
       color: $TEXT-LIGHT-COLOR;
@@ -767,6 +767,26 @@ a {
     i {
       font-size: 25px;
     }
+  }
+}
+
+.newsletter-container {
+  width: 100%;
+  margin: 0 auto;
+
+  @include media-query(DESKTOP) {
+    width: 50%;
+  }
+
+  .newsletter-email-input {
+    width: 80%;
+    max-width: 300px;
+    padding: 8px 6px;
+    outline: none;
+  }
+  .newsletter-button {
+    padding: 8px 6px;
+    outline: none;
   }
 }
 
