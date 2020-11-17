@@ -63,9 +63,9 @@ function drawGraph() {
   const avgVals = averageSignal(mSignal.values);
 
   const nowIndex = (60 * (new Date()).getHours()) + (new Date()).getMinutes();
-  const firstIndex = ((nowIndex + avgVals.length) - NUM_POINTS - 1) % avgVals.length;
-  const lastIndex = ((nowIndex + avgVals.length) + 1) % avgVals.length;
-  const mVals = avgVals.slice(firstIndex, lastIndex);
+  const firstIndex = nowIndex - NUM_POINTS + 1;
+  const lastIndex = nowIndex + 1;
+  const mVals = [...avgVals.slice(firstIndex), ...avgVals.slice(0, lastIndex)].slice(0, NUM_POINTS);
 
   const mMin = Math.min(...mVals);
   const mMax = Math.max(...mVals);
