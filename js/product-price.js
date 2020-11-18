@@ -16,6 +16,6 @@ xmlHttp.onreadystatechange = function(err) {
 
 window.addEventListener('load', function() {
   const myArticle = document.getElementById('my-product').getAttribute('data-article');
-  xmlHttp.open("GET", url.replace('__ARTICLE__', myArticle));
+  xmlHttp.open('GET', url.replace('__ARTICLE__', myArticle));
   xmlHttp.send();
 });
