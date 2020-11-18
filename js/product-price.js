@@ -5,7 +5,7 @@ xmlHttp.onreadystatechange = function(err) {
   if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
     const res = JSON.parse(xmlHttp.responseText);
     if(res.success) {
-      const myPrice = res.data.price.toFixed(2);
+      const myPrice = res.data.price.current.toFixed(2);
       const myPriceElement = document.getElementById('my-product-price');
       const addButtonElement = document.getElementById('product-add-button');
       myPriceElement.innerHTML = `${myPrice} USD`;
