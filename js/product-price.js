@@ -7,15 +7,21 @@ productHttp.onreadystatechange = (err) => {
   if (productHttp.readyState == 4 && productHttp.status == 200) {
     const res = JSON.parse(productHttp.responseText);
     if(res.success) {
+      window.lastProductData = res.data.product;
+
       const nowIndex = (60 * (new Date()).getHours()) + (new Date()).getMinutes();
-      const myPrice = res.data.product.price.history[nowIndex].toFixed(2);
+      const myPrice = window.lastProductData.price.history[nowIndex].toFixed(2);
 
       const myPriceElement = document.getElementById('my-product-price');
       const addButtonElement = document.getElementById('product-add-button');
 
+      const buttonContainer = document.querySelectorAll('[data-selected]')[0];
+      const selectedMinutes = parseInt(buttonContainer.getAttribute('data-selected'));
+
       myPriceElement.innerHTML = `${myPrice} USD`;
       addButtonElement.setAttribute('data-price', myPrice);
-      drawGraph(res.data.product);
+
+      drawGraph(window.lastProductData, selectedMinutes);
     }
   }
 };
@@ -56,14 +62,14 @@ function averageSignal(signal) {
   return averages;
 }
 
-function drawGraph(mProduct) {
-  const NUM_POINTS = 120;
+function drawGraph(mProduct, nPoints) {
+  nPoints = nPoints || 120;
   const avgVals = averageSignal(mProduct.price.history);
 
   const nowIndex = (60 * (new Date()).getHours()) + (new Date()).getMinutes();
-  const firstIndex = nowIndex - NUM_POINTS + 1;
+  const firstIndex = nowIndex - nPoints + 1;
   const lastIndex = nowIndex + 1;
-  const mVals = [...avgVals.slice(firstIndex), ...avgVals.slice(0, lastIndex)].slice(0, NUM_POINTS);
+  const mVals = [...avgVals.slice(firstIndex), ...avgVals.slice(0, lastIndex)].slice(0, nPoints);
 
   const mMin = Math.min(...mVals);
   const mMax = Math.max(...mVals);
@@ -95,4 +101,18 @@ function getProduct() {
   productHttp.send();
 }
 
-window.addEventListener('load', getProduct);
+window.addEventListener('load', () => {
+  const dateButtons = Array.from(document.getElementsByClassName('product-graph-date-button'));
+  const buttonContainer = document.querySelectorAll('[data-selected]')[0];
+
+  dateButtons.forEach(el => {
+    el.addEventListener('click', () => {
+      dateButtons.forEach(unselect => unselect.classList.remove('selected'));
+      el.classList.add('selected');
+      buttonContainer.setAttribute('data-selected', parseInt(el.getAttribute('data-minutes')));
+      drawGraph(window.lastProductData, parseInt(el.getAttribute('data-minutes')));
+    });
+  });
+
+  getProduct();
+});

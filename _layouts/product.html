@@ -60,7 +60,16 @@
             </div>
           </div>
           <div class="product-price-graph">
-            <div class="product-graph-title">Price History</div>
+            <div class="product-graph-header">
+              <div class="product-graph-title">Price History</div>
+              <div class="product-graph-button-container" data-selected=120>
+                <div class="product-graph-date-button" data-minutes=60>1H</div>
+                <div class="product-graph-date-button selected" data-minutes=120>2H</div>
+                <div class="product-graph-date-button" data-minutes=240>4H</div>
+                <div class="product-graph-date-button" data-minutes=480>8H</div>
+                <div class="product-graph-date-button" data-minutes=960>16H</div>
+              </div>
+            </div>
             <div id="mgraph" class="product-graph"></div>
           </div>
         </div>

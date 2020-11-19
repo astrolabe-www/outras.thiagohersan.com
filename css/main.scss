@@ -604,8 +604,40 @@ a {
       }
 
       .product-price-graph {
-        .product-graph-title {
+        .product-graph-header {
+          display: flex;
+          flex-direction: row;
           text-align: center;
+
+          .product-graph-title {
+            align-self: center;
+          }
+
+          .product-graph-button-container {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            justify-content: flex-end;
+
+            font-size: 12px;
+            @include media-query(DESKTOP) {
+              font-size: 14px;
+            }
+
+            .product-graph-date-button {
+              padding: 4px 12px;
+              margin: 0 0 0 6px;
+              border-radius: 15%;
+              cursor: pointer;
+
+              &.selected {
+                background-color: $TEXT-MEDIUM-COLOR;
+                color: $TEXT-LIGHT-COLOR;
+                cursor: auto;
+                pointer-events: none;
+              }
+            }
+          }
         }
       }
     }
