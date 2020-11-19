@@ -68,28 +68,24 @@ function drawGraph(mProduct) {
   const mMin = Math.min(...mVals);
   const mMax = Math.max(...mVals);
 
-  const lastVal = {};
-
+  const graphColor = getComputedStyle(document.getElementById('my-product-price').parentElement).backgroundColor;
   background(255);
-  stroke(200);
-  strokeWeight(2);
-  line(0.005 * width, 0.08 * height, 0.005 * width, 0.92 * height);
-  line(0.005 * width, 0.92 * height, 0.995 * width, 0.92 * height);
-
-  stroke(0);
+  stroke(graphColor);
+  fill(graphColor);
   strokeWeight(1);
+
+  beginShape();
+  vertex(0, height);
+
   mVals.forEach((v, i) => {
-    const x = map(i, 0, mVals.length - 1, 0, width);
-    const y = map(v, mMin, mMax, 0.9 * height, 0.1 * height, true);
-
-    lastVal.x = lastVal.x || 0;
-    lastVal.y = lastVal.y || y;
-
-    line(lastVal.x, lastVal.y, x, y);
-
-    lastVal.x = x;
-    lastVal.y = y;
+    vertex(
+      map(i, 0, mVals.length - 1, 0, width),
+      map(v, mMin, mMax, 0.9 * height, 0.1 * height, true)
+    );
   });
+  vertex(width, height);
+  endShape(CLOSE);
+
   setTimeout(getProduct, 60e3);
 }
 
