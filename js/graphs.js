@@ -46,7 +46,7 @@ function averageSignal(signal) {
     avgVals[i] = signal[signal.length - avgVals.length + i];
     avgSum += avgVals[i];
   }
-  
+
   for(let i = 0; i < averages.length; i++) {
     avgSum -= avgVals[currAvgIndex];
     avgVals[currAvgIndex] = signal[i];
