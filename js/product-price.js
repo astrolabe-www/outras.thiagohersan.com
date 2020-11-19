@@ -22,12 +22,12 @@ productHttp.onreadystatechange = (err) => {
 
 function windowResized() {
   const mGraph = document.getElementById('mgraph');
-  resizeCanvas(mGraph.offsetWidth, 0.444 * mGraph.offsetWidth);
+  resizeCanvas(mGraph.offsetWidth, 0.333 * mGraph.offsetWidth);
 }
 
 function setup() {
   const mGraph = document.getElementById('mgraph');
-  const mCanvas = createCanvas(mGraph.offsetWidth, 0.444 * mGraph.offsetWidth);
+  const mCanvas = createCanvas(mGraph.offsetWidth, 0.333 * mGraph.offsetWidth);
   mCanvas.parent('mgraph');
   smooth();
   noLoop();
