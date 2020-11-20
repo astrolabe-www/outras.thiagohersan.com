@@ -15,6 +15,7 @@ productHttp.onreadystatechange = (err) => {
 
       EL.productPrice.innerHTML = `${myPrice} USD`;
       EL.addButton.setAttribute('data-price', myPrice);
+      EL.graphLoader.style.display = 'none';
 
       drawGraph();
     }
@@ -109,6 +110,7 @@ window.addEventListener('load', () => {
   EL.productPrice = document.getElementById('my-product-price');
   EL.addButton = document.getElementById('product-add-button');
   EL.mGraph = document.getElementById('mgraph');
+  EL.graphLoader = document.getElementById('my-graph-loader');
 
   EL.dateButtons.forEach(button => {
     button.addEventListener('click', () => {

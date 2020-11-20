@@ -604,10 +604,16 @@ a {
       }
 
       .product-price-graph {
+
+        .product-graph {
+          .product-graph-loader {
+            margin: 12px auto;
+          }
+        }
+
         .product-graph-header {
           display: flex;
           flex-direction: row;
-          text-align: center;
 
           .product-graph-title {
             align-self: center;
@@ -618,6 +624,7 @@ a {
             flex-direction: row;
             flex-grow: 1;
             justify-content: flex-end;
+            align-items: flex-end;
 
             font-size: 12px;
             @include media-query(DESKTOP) {
