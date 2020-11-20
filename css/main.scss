@@ -608,6 +608,7 @@ a {
         .product-graph {
           .product-graph-loader {
             margin: 12px auto;
+            animation-delay: calc(-5 * #{$TRANSITION-PERIOD});
           }
         }
 
@@ -903,7 +904,7 @@ a {
   border-radius: 50%;
   width: 16px;
   height: 16px;
-  animation: spin 1.2s linear infinite;
+  animation: spin calc(10 * #{$TRANSITION-PERIOD}) linear infinite;
 }
 
 @keyframes spin {
