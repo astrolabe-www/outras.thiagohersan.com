@@ -3,37 +3,36 @@ const productUrl = `${productApi}/__ARTICLE__`;
 
 const productHttp = new XMLHttpRequest();
 
+const EL = {};
+
 productHttp.onreadystatechange = (err) => {
   if (productHttp.readyState == 4 && productHttp.status == 200) {
     const res = JSON.parse(productHttp.responseText);
     if(res.success) {
       window.lastProductData = res.data.product;
 
-      const nowIndex = (60 * (new Date()).getHours()) + (new Date()).getMinutes();
-      const myPrice = window.lastProductData.price.history[nowIndex].toFixed(2);
+      const myPrice = window.lastProductData.price.history[nowIndex()].toFixed(2);
 
-      const myPriceElement = document.getElementById('my-product-price');
-      const addButtonElement = document.getElementById('product-add-button');
+      EL.productPrice.innerHTML = `${myPrice} USD`;
+      EL.addButton.setAttribute('data-price', myPrice);
 
-      const buttonContainer = document.querySelectorAll('[data-selected]')[0];
-      const selectedMinutes = parseInt(buttonContainer.getAttribute('data-selected'));
-
-      myPriceElement.innerHTML = `${myPrice} USD`;
-      addButtonElement.setAttribute('data-price', myPrice);
-
-      drawGraph(window.lastProductData, selectedMinutes);
+      drawGraph();
     }
   }
 };
 
+function nowIndex() {
+  return (60 * (new Date()).getHours()) + (new Date()).getMinutes();
+}
+
 function windowResized() {
-  const mGraph = document.getElementById('mgraph');
-  resizeCanvas(mGraph.offsetWidth, 0.333 * mGraph.offsetWidth);
+  resizeCanvas(EL.mGraph.offsetWidth, 0.333 * EL.mGraph.offsetWidth);
+  drawGraph();
 }
 
 function setup() {
-  const mGraph = document.getElementById('mgraph');
-  const mCanvas = createCanvas(mGraph.offsetWidth, 0.333 * mGraph.offsetWidth);
+  EL.mGraph = document.getElementById('mgraph');
+  const mCanvas = createCanvas(EL.mGraph.offsetWidth, 0.333 * EL.mGraph.offsetWidth);
   mCanvas.parent('mgraph');
   smooth();
   noLoop();
@@ -62,19 +61,21 @@ function averageSignal(signal) {
   return averages;
 }
 
-function drawGraph(mProduct, nPoints) {
-  nPoints = nPoints || 120;
+function drawGraph() {
+  const mProduct = window.lastProductData;
+  const selectedMinutes = parseInt(EL.buttonContainer.getAttribute('data-selected'));
+  const nPoints = selectedMinutes || 120;
+
   const avgVals = averageSignal(mProduct.price.history);
 
-  const nowIndex = (60 * (new Date()).getHours()) + (new Date()).getMinutes();
-  const firstIndex = nowIndex - nPoints + 1;
-  const lastIndex = nowIndex + 1;
-  const mVals = [...avgVals.slice(firstIndex), ...avgVals.slice(0, lastIndex)].slice(0, nPoints);
+  const firstIndex = nowIndex() - nPoints + 1;
+  const lastIndex = nowIndex() + 1;
 
+  const mVals = [...avgVals.slice(firstIndex), ...avgVals.slice(0, lastIndex)].slice(0, nPoints);
   const mMin = Math.min(...mVals);
   const mMax = Math.max(...mVals);
 
-  const graphColor = getComputedStyle(document.getElementById('my-product-price').parentElement).backgroundColor;
+  const graphColor = getComputedStyle(EL.productCartHeader).backgroundColor;
   background(255);
   stroke(graphColor);
   fill(graphColor);
@@ -96,21 +97,25 @@ function drawGraph(mProduct, nPoints) {
 }
 
 function getProduct() {
-  const myArticle = document.getElementById('my-product').getAttribute('data-article');
-  productHttp.open('GET', productUrl.replace('__ARTICLE__', myArticle));
+  productHttp.open('GET', productUrl.replace('__ARTICLE__', EL.myArticle));
   productHttp.send();
 }
 
 window.addEventListener('load', () => {
-  const dateButtons = Array.from(document.getElementsByClassName('product-graph-date-button'));
-  const buttonContainer = document.querySelectorAll('[data-selected]')[0];
+  EL.myArticle = document.getElementById('my-product').getAttribute('data-article');
+  EL.dateButtons = Array.from(document.getElementsByClassName('product-graph-date-button'));
+  EL.buttonContainer = document.querySelectorAll('[data-selected]')[0];
+  EL.productCartHeader = document.getElementById('my-product-price').parentElement;
+  EL.productPrice = document.getElementById('my-product-price');
+  EL.addButton = document.getElementById('product-add-button');
+  EL.mGraph = document.getElementById('mgraph');
 
-  dateButtons.forEach(el => {
-    el.addEventListener('click', () => {
-      dateButtons.forEach(unselect => unselect.classList.remove('selected'));
-      el.classList.add('selected');
-      buttonContainer.setAttribute('data-selected', parseInt(el.getAttribute('data-minutes')));
-      drawGraph(window.lastProductData, parseInt(el.getAttribute('data-minutes')));
+  EL.dateButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      EL.dateButtons.forEach(unselect => unselect.classList.remove('selected'));
+      button.classList.add('selected');
+      EL.buttonContainer.setAttribute('data-selected', parseInt(button.getAttribute('data-minutes')));
+      drawGraph();
     });
   });
 
