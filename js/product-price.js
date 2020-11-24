@@ -23,7 +23,8 @@ productHttp.onreadystatechange = (err) => {
 };
 
 function nowIndex() {
-  return (60 * (new Date()).getHours()) + (new Date()).getMinutes();
+  const mDate = new Date();
+  return Math.floor((60 * mDate.getUTCHours()) + mDate.getUTCMinutes());
 }
 
 function windowResized() {

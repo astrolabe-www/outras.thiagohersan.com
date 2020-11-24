@@ -7,6 +7,11 @@ const mSignalSelector = document.getElementById('my-signal-selector');
 
 mSignalSelector.addEventListener('change', drawGraph);
 
+function nowIndex() {
+  const mDate = new Date();
+  return Math.floor((60 * mDate.getUTCHours()) + mDate.getUTCMinutes());
+}
+
 function windowResized() {
   const mGraphs = document.getElementById('mgraphs');
   resizeCanvas(mGraphs.offsetWidth, 0.333 * mGraphs.offsetWidth);
@@ -62,9 +67,8 @@ function drawGraph() {
   const mSignal = allSignals.filter(s => s.name === mSignalSelector.value)[0] || {};
   const avgVals = averageSignal(mSignal.values);
 
-  const nowIndex = (60 * (new Date()).getHours()) + (new Date()).getMinutes();
-  const firstIndex = nowIndex - NUM_POINTS + 1;
-  const lastIndex = nowIndex + 1;
+  const firstIndex = nowIndex() - NUM_POINTS + 1;
+  const lastIndex = nowIndex() + 1;
   const mVals = [...avgVals.slice(firstIndex), ...avgVals.slice(0, lastIndex)].slice(0, NUM_POINTS);
 
   const mMin = Math.min(...mVals);
