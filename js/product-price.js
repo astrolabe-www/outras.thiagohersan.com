@@ -135,7 +135,7 @@ function drawGraph() {
       price: v
     };
 
-    for(let i = lastX; i <= mX; i++) {
+    for(let i = lastX + 1; i <= mX; i++) {
       window.priceCoordinates[i] = mPriceInfo;
     }
     lastX = mX;
