@@ -59,6 +59,10 @@ function drawPriceInfo() {
     EL.priceInfo.style.opacity = '1';
     EL.priceInfo.style.left = `calc(${mouseX / width * 100}% - ${EL.priceInfo.offsetWidth / 2}px)`;
 
+    const calcLeft = getComputedStyle(EL.priceInfo).left;
+    const mLeft = Math.max(0, Math.min(width - EL.priceInfo.offsetWidth, parseFloat(calcLeft)));
+    EL.priceInfo.style.left = `${mLeft}px`;
+
     if(mVal.y < (height / 2.2)) {
       EL.priceInfo.style.top = 'initial';
       EL.priceInfo.style.bottom = '32px';
