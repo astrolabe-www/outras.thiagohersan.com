@@ -649,21 +649,6 @@ a {
           }
         }
 
-        .product-price-info {
-          position: absolute;
-          background-color: $BACKGROUND-COLOR;
-          padding: 2px 6px;
-          border: 1px $TEXT-ACCENT-COLOR solid;
-          z-index: 10;
-          white-space: nowrap;
-          opacity: 0;
-
-          font-size: 10px;
-          @include media-query(DESKTOP) {
-            font-size: 12px;
-          }
-        }
-
         .product-graph-time-axis {
           display: flex;
           flex-direction: row;
@@ -696,6 +681,21 @@ a {
 
           .product-graph-price-axis-value {
             opacity: 0;
+          }
+        }
+
+        .product-price-info {
+          position: absolute;
+          background-color: $BACKGROUND-COLOR;
+          padding: 2px 6px;
+          border: 1px $TEXT-ACCENT-COLOR solid;
+          z-index: 10;
+          white-space: nowrap;
+          opacity: 0;
+
+          font-size: 10px;
+          @include media-query(DESKTOP) {
+            font-size: 12px;
           }
         }
       }
