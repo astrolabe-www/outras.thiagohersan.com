@@ -138,8 +138,9 @@ function drawGraph() {
     const mX = Math.round(map(i, 0, mVals.length - 1, 0, width));
     const mY = map(v, mMin, mMax, 0.9 * height, 0.1 * height, true);
 
-    const minutesAgo = mVals.length - 1 - i;
-    const mDate = new Date((new Date()).getTime() - (minutesAgo * 60 * 1000));
+    const firstDateUnix = (new Date()).getTime() - ((selectedMinutes + 1) * 60 * 1000);
+    const lastDateUnix = (new Date()).getTime() - (0 * 60 * 1000);
+    const mDate = new Date(lerp(firstDateUnix, lastDateUnix, mX / width));
 
     const mPriceInfo = {
       x: mX,
