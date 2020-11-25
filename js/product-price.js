@@ -4,6 +4,8 @@ const productUrl = `${productApi}/__ARTICLE__`;
 const productHttp = new XMLHttpRequest();
 
 const EL = {};
+const STYLE = {};
+
 let mouseGraphics, graphGraphics;
 
 productHttp.onreadystatechange = (err) => {
@@ -42,14 +44,13 @@ function drawPriceInfo() {
 
   if ((mouseX <= width) && (mouseX >= 0) && (mouseY <= height) && (mouseY >= 0)) {
     const mVal = window.priceCoordinates[Math.round(mouseX)];
-    const graphColor = getComputedStyle(EL.productCartHeader).backgroundColor;
     mouseGraphics.clear();
 
     mouseGraphics.stroke(0);
     mouseGraphics.drawingContext.setLineDash([1, 3]);
     mouseGraphics.line(mouseX, 0, mouseX, height);
 
-    mouseGraphics.stroke(graphColor);
+    mouseGraphics.stroke(STYLE.graphColor);
     mouseGraphics.fill(255);
     mouseGraphics.drawingContext.setLineDash([]);
     mouseGraphics.ellipse(mouseX, mVal.y, 8, 8);
@@ -58,10 +59,10 @@ function drawPriceInfo() {
     EL.priceInfo.style.opacity = '1';
     EL.priceInfo.style.left = `calc(${mouseX / width * 100}% - ${EL.priceInfo.offsetWidth / 2}px)`;
 
-    if(mVal.y < (height / 2.1)) {
+    if(mVal.y < (height / 2.2)) {
       EL.priceInfo.style.top = 'initial';
-      EL.priceInfo.style.bottom = '8px';
-    } else if(mVal.y > (height / 1.9)) {
+      EL.priceInfo.style.bottom = '32px';
+    } else if(mVal.y > (height / 1.8)) {
       EL.priceInfo.style.top = '32px';
       EL.priceInfo.style.bottom = 'initial';
     }
@@ -113,15 +114,19 @@ function drawGraph() {
   const mMin = Math.min(...mVals);
   const mMax = Math.max(...mVals);
 
-  const graphColor = getComputedStyle(EL.productCartHeader).backgroundColor;
-
   mouseGraphics.clear();
   EL.priceInfo.style.opacity = '0';
 
   graphGraphics.background(255);
-  graphGraphics.stroke(graphColor);
-  graphGraphics.fill(graphColor);
+
   graphGraphics.strokeWeight(1);
+  graphGraphics.stroke(STYLE.axisColor);
+
+  graphGraphics.line(0, 0.5 * height, width, 0.5 * height);
+  graphGraphics.line(0, 0.1 * height, width, 0.1 * height);
+
+  graphGraphics.stroke(STYLE.graphColor);
+  graphGraphics.fill(STYLE.graphColor);
 
   graphGraphics.beginShape();
   graphGraphics.vertex(0, height);
@@ -155,6 +160,20 @@ function drawGraph() {
   graphGraphics.vertex(width, height);
   graphGraphics.endShape(CLOSE);
 
+  graphGraphics.strokeWeight(1);
+  graphGraphics.stroke(0);
+  graphGraphics.line(0, 0.99 * height, width, 0.99 * height);
+
+  graphGraphics.line(1, 0.99 * height, 1, 0.95 * height);
+  graphGraphics.line(0.5 * width, 0.99 * height, 0.5 * width, 0.95 * height);
+  graphGraphics.line(width - 1, 0.99 * height, width - 1, 0.95 * height);
+
+  Array.from(EL.timeAxis).forEach((e, i) => {
+    const minutesAgo = selectedMinutes - 0.5 * i * selectedMinutes;
+    const mDate = new Date((new Date()).getTime() - (minutesAgo * 60 * 1000));
+    e.innerHTML = `${mDate.getHours()}:${String(mDate.getMinutes()).padStart(2, '0')}`;
+  });
+
   setTimeout(getProduct, 60e3);
 }
 
@@ -173,6 +192,11 @@ window.addEventListener('load', () => {
   EL.mGraph = document.getElementById('mgraph');
   EL.graphLoader = document.getElementById('my-graph-loader');
   EL.priceInfo = document.getElementById('my-product-price-info');
+  EL.dateButtonSelected = document.querySelectorAll('.product-graph-date-button.selected')[0];
+  EL.timeAxis = document.getElementsByClassName('product-graph-time-axis-value');
+
+  STYLE.graphColor = getComputedStyle(EL.productCartHeader).backgroundColor;
+  STYLE.axisColor = getComputedStyle(EL.dateButtonSelected).backgroundColor;
 
   EL.dateButtons.forEach(button => {
     button.addEventListener('click', () => {

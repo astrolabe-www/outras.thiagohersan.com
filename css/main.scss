@@ -651,13 +651,23 @@ a {
 
         .product-price-info {
           position: absolute;
-          bottom: 8px;
           background-color: $BACKGROUND-COLOR;
           padding: 2px 6px;
           border: 1px $TEXT-ACCENT-COLOR solid;
           z-index: 10;
           white-space: nowrap;
           opacity: 0;
+
+          font-size: 10px;
+          @include media-query(DESKTOP) {
+            font-size: 12px;
+          }
+        }
+
+        .product-graph-time-axis {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
 
           font-size: 10px;
           @include media-query(DESKTOP) {
