@@ -57,6 +57,14 @@ function drawPriceInfo() {
     EL.priceInfo.innerHTML = `${mVal.date}, $${mVal.price.toFixed(2)} USD`;
     EL.priceInfo.style.opacity = '1';
     EL.priceInfo.style.left = `calc(${mouseX / width * 100}% - ${EL.priceInfo.offsetWidth / 2}px)`;
+
+    if(mVal.y < (height / 2.1)) {
+      EL.priceInfo.style.top = 'initial';
+      EL.priceInfo.style.bottom = '8px';
+    } else if(mVal.y > (height / 1.9)) {
+      EL.priceInfo.style.top = '32px';
+      EL.priceInfo.style.bottom = 'initial';
+    }
   }
   return false;
 }
