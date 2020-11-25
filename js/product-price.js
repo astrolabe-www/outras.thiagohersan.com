@@ -119,7 +119,7 @@ function drawGraph() {
   graphGraphics.vertex(0, height);
 
   window.priceCoordinates = new Array(width);
-  let lastX = 0;
+  const last = { x: -1, y: 0 };
 
   mVals.forEach((v, i) => {
     const mX = Math.round(map(i, 0, mVals.length - 1, 0, width));
@@ -135,10 +135,12 @@ function drawGraph() {
       price: v
     };
 
-    for(let i = lastX + 1; i <= mX; i++) {
-      window.priceCoordinates[i] = mPriceInfo;
+    for(let i = last.x + 1; i <= mX; i++) {
+      const nY = lerp(last.y, mY, (i - last.x + 1)/(mX - last.x + 1));
+      window.priceCoordinates[i] = { ...mPriceInfo, y: nY };
     }
-    lastX = mX;
+    last.x = mX;
+    last.y = mY;
 
     graphGraphics.vertex(mX, mY);
   });
