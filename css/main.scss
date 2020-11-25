@@ -674,6 +674,30 @@ a {
             font-size: 12px;
           }
         }
+
+        .product-graph-price-axis {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          top: 0;
+          left: -5%;
+          height: 100%;
+          padding: 24px 0;
+          margin-top: 3px;
+          box-sizing: border-box;
+          font-size: 10px;
+
+          @include media-query(DESKTOP) {
+            padding: 34px 0;
+            margin-top: 2px;
+            font-size: 12px;
+          }
+
+          .product-graph-price-axis-value {
+            opacity: 0;
+          }
+        }
       }
     }
   }

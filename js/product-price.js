@@ -175,6 +175,11 @@ function drawGraph() {
     e.innerHTML = `${mDate.getHours()}:${String(mDate.getMinutes()).padStart(2, '0')}`;
   });
 
+  Array.from(EL.priceAxis).forEach((e, i) => {
+    e.style.opacity = (i === EL.priceAxis.length - 1) ? '0' : '1';
+    e.innerHTML = `$${lerp(mMin, mMax, 1 - 0.5 * i).toFixed(0)}`;
+  });
+
   setTimeout(getProduct, 60e3);
 }
 
@@ -195,6 +200,7 @@ window.addEventListener('load', () => {
   EL.priceInfo = document.getElementById('my-product-price-info');
   EL.dateButtonSelected = document.querySelectorAll('.product-graph-date-button.selected')[0];
   EL.timeAxis = document.getElementsByClassName('product-graph-time-axis-value');
+  EL.priceAxis = document.getElementsByClassName('product-graph-price-axis-value');
 
   STYLE.graphColor = getComputedStyle(EL.productCartHeader).backgroundColor;
   STYLE.axisColor = getComputedStyle(EL.dateButtonSelected).backgroundColor;
