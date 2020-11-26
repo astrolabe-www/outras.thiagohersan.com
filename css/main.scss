@@ -643,6 +643,23 @@ a {
         }
 
         .product-graph {
+          position: relative;
+
+          .product-graph-price-axis {
+            position: absolute;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 10px;
+
+            @include media-query(DESKTOP) {
+              font-size: 12px;
+            }
+
+            .product-graph-price-axis-value {
+              position: absolute;
+            }
+          }
+
           .product-graph-loader {
             margin: 12px auto;
             animation-delay: calc(-5 * #{$TRANSITION-PERIOD});
@@ -657,31 +674,6 @@ a {
           font-size: 10px;
           @include media-query(DESKTOP) {
             font-size: 12px;
-          }
-        }
-
-        .product-graph-price-axis {
-          position: absolute;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          top: 0;
-          left: -5%;
-          height: 100%;
-          padding: 26px 0;
-          margin-top: 3px;
-          box-sizing: border-box;
-          font-size: 10px;
-
-          @include media-query(DESKTOP) {
-            padding: 34px 0;
-            margin-top: 2px;
-            left: -6%;
-            font-size: 12px;
-          }
-
-          .product-graph-price-axis-value {
-            opacity: 0;
           }
         }
 

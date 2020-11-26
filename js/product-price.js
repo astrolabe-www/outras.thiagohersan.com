@@ -55,7 +55,7 @@ function drawPriceInfo() {
     mouseGraphics.drawingContext.setLineDash([]);
     mouseGraphics.ellipse(mouseX, mVal.y, 8, 8);
 
-    EL.priceInfo.innerHTML = `${mVal.date}, $${mVal.price.toFixed(2)} USD`;
+    EL.priceInfo.innerHTML = `${mVal.date}, $${mVal.price.toFixed(2)}`;
     EL.priceInfo.style.opacity = '1';
     EL.priceInfo.style.left = `calc(${mouseX / width * 100}% - ${EL.priceInfo.offsetWidth / 2}px)`;
 
@@ -178,10 +178,15 @@ function drawGraph() {
     e.innerHTML = `${mDate.getHours()}:${String(mDate.getMinutes()).padStart(2, '0')}`;
   });
 
+  const mTop = [0.1, 0.5, 0.99];
+  const lastPrice = Array.from(EL.priceAxis).pop();
+
   Array.from(EL.priceAxis).forEach((e, i) => {
-    e.style.opacity = (i === EL.priceAxis.length - 1) ? '0' : '1';
     e.innerHTML = `$${lerp(mMin, mMax, 1 - 0.5 * i).toFixed(0)}`;
+    e.style.top = `${mTop[i] * height - e.offsetHeight / 2}px`;
+    e.style.marginLeft = `-${e.offsetWidth + 2}px`;
   });
+  lastPrice.style.top = `${height - lastPrice.offsetHeight}px`;
 
   setTimeout(getProduct, 60e3);
 }
