@@ -71,19 +71,18 @@ function drawPriceInfo() {
       EL.priceInfo.style.bottom = 'initial';
     }
   }
-  return false;
 }
 
 function mouseMoved() {
-  return drawPriceInfo();
+  drawPriceInfo();
 }
 
 function touchStarted() {
-  return drawPriceInfo() || true;
+  drawPriceInfo();
 }
 
 function touchMoved() {
-  return drawPriceInfo();
+  drawPriceInfo();
 }
 
 function draw() {
