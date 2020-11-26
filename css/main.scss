@@ -666,9 +666,9 @@ a {
           flex-direction: column;
           justify-content: space-between;
           top: 0;
-          left: -6%;
+          left: -5%;
           height: 100%;
-          padding: 24px 0;
+          padding: 26px 0;
           margin-top: 3px;
           box-sizing: border-box;
           font-size: 10px;
@@ -676,6 +676,7 @@ a {
           @include media-query(DESKTOP) {
             padding: 34px 0;
             margin-top: 2px;
+            left: -6%;
             font-size: 12px;
           }
 
