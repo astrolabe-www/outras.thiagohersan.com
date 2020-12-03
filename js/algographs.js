@@ -49,11 +49,10 @@ function drawGraph(response) {
     else return 0
   }).slice(0, 8);
 
-  const firstP = prods[0];
-  const lastP = prods[prods.length - 1];
-
-  const mMin = (firstP.price.history[nI] - firstP.price.low) / (firstP.price.high - firstP.price.low);
-  const mMax = (lastP.price.history[nI] - lastP.price.low) / (lastP.price.high - lastP.price.low);
+  const allMins = prods.map(p => Math.min(...p.price.history));
+  const allMaxs = prods.map(p => Math.max(...p.price.history));
+  const mMin = Math.min(...allMins);
+  const mMax = Math.max(...allMaxs);
 
   background(255);
   stroke(`#aaa`);
@@ -69,11 +68,9 @@ function drawGraph(response) {
 }
 
 function drawProduct(prod, mMin, mMax) {
-  const NUM_POINTS = 90;
+  const NUM_POINTS = 1440;
 
-  const mLow = prod.price.low;
-  const mHigh = prod.price.high;
-  const pVals = prod.price.history.map(p => (p - mLow) / (mHigh - mLow));
+  const pVals = prod.price.history;
 
   const firstIndex = nowIndex() - NUM_POINTS + 1;
   const lastIndex = nowIndex() + 1;
