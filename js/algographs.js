@@ -1,9 +1,9 @@
-const productUrl = 'https://outras-api.herokuapp.com/products/';
 const productHttp = new XMLHttpRequest();
 
-productHttp.onreadystatechange = (err) => {
-  if (productHttp.readyState == 4 && productHttp.status == 200) {
-    const res = JSON.parse(productHttp.responseText);
+productHttp.onreadystatechange = (e) => {
+  const mET = e.currentTarget;
+  if (mET.readyState == 4 && mET.status == 200) {
+    const res = JSON.parse(mET.responseText);
     if(res.success) {
       drawGraph(res.data.products);
     }
@@ -11,7 +11,7 @@ productHttp.onreadystatechange = (err) => {
 };
 
 function getProducts() {
-  productHttp.open('GET', productUrl);
+  productHttp.open('GET', PRODS_URL);
   productHttp.send();
   setTimeout(getProducts, 60e3);
 }

@@ -1,5 +1,4 @@
 let allSignals;
-const serverUrl = 'https://outras-api.herokuapp.com/signals/';
 
 const mGraphs = document.getElementById('mgraphs');
 const mSignalSelector = document.getElementById('my-signal-selector');
@@ -24,7 +23,7 @@ function setup() {
   noLoop();
   background(255);
   stroke(0);
-  loadJSON(serverUrl, initGraph);
+  loadJSON(SIGNALS_URL, initGraph);
 }
 
 function initGraph(response) {
