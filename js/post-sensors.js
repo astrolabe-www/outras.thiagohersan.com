@@ -25,7 +25,7 @@ function postSignal() {
     signals[s].http.open('POST', mUrl);
     signals[s].http.send();
   });
-  setTimeout(postSignal, 60e3);
+  setTimeout(postSignal, 30e3);
 }
 
 function windowResized() {
@@ -54,6 +54,7 @@ function nowIndex() {
 
 function createGraph() {
   noiseSeed(101081);
+
   SIGNAL_NAMES.forEach((s, j) => {
 
     const mHttp = new XMLHttpRequest();
@@ -65,7 +66,7 @@ function createGraph() {
 
     const noiseFactor = s.startsWith('TEMP') ? 1/166 : 1/33;
     for(let i = 0; i < 24 * 60; i++) {
-      signals[s].values.push(noise(i * noiseFactor, j));
+      signals[s].values.push(0.333 + 0.333 * (noise(i * noiseFactor, j) - 0.5));
     }
   });
 }
