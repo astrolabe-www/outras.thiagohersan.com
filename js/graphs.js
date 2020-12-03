@@ -61,7 +61,7 @@ function averageSignal(signal) {
 }
 
 function drawGraph() {
-  const NUM_POINTS = 120;
+  const NUM_POINTS = 1440;
   const mSignal = allSignals.filter(s => s.name === mSignalSelector.value)[0] || {};
   const avgVals = averageSignal(mSignal.values);
 
