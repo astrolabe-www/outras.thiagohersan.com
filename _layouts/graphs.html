@@ -20,6 +20,8 @@
   <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
   {% if page.title contains "algographs" %}
     <script src="{{ site.baseurl }}/js/algographs.js"></script>
+  {% elsif page.title contains "sensors" %}
+    <script src="{{ site.baseurl }}/js/post-sensors.js"></script>
   {% else %}
     <script src="{{ site.baseurl }}/js/graphs.js"></script>
   {% endif %}
