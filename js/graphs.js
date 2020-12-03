@@ -1,6 +1,5 @@
 let allSignals;
-const serverSignals = 'https://outras-api.herokuapp.com/signals/';
-const localSignals = '../assets/json/outras.json';
+const serverUrl = 'https://outras-api.herokuapp.com/signals/';
 
 const mGraphs = document.getElementById('mgraphs');
 const mSignalSelector = document.getElementById('my-signal-selector');
@@ -15,6 +14,7 @@ function nowIndex() {
 function windowResized() {
   const mGraphs = document.getElementById('mgraphs');
   resizeCanvas(mGraphs.offsetWidth, 0.333 * mGraphs.offsetWidth);
+  drawGraph();
 }
 
 function setup() {
@@ -24,8 +24,7 @@ function setup() {
   noLoop();
   background(255);
   stroke(0);
-  const signalsURL = (window.location.href.includes('//outras.ml')) ? serverSignals : localSignals;
-  loadJSON(signalsURL, initGraph);
+  loadJSON(serverUrl, initGraph);
 }
 
 function initGraph(response) {
