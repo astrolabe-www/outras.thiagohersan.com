@@ -1,9 +1,9 @@
-let allSignals;
+const NUM_POINTS = 1440;
 
 const mGraphs = document.getElementById('mgraphs');
 const mSignalSelector = document.getElementById('my-signal-selector');
 
-mSignalSelector.addEventListener('change', drawGraph);
+mSignalSelector.addEventListener('change', () => drawGraph(window.lastLoadResponse));
 
 function nowIndex() {
   const mDate = new Date();
@@ -26,8 +26,8 @@ function setup() {
   loadJSON(SIGNALS_URL, initGraph);
 }
 
-function initGraph(response) {
-  allSignals = response.data.signals;
+function initGraph(res) {
+  const allSignals = res.data.signals;
   allSignals.sort((a, b) => b.name.localeCompare(a.name));
 
   allSignals.forEach(s => {
@@ -36,7 +36,8 @@ function initGraph(response) {
     mS.innerHTML = s.name.replace('_', ' ');
     mSignalSelector.appendChild(mS);
   });
-  drawGraph();
+  window.lastLoadResponse = res;
+  drawGraph(res);
 }
 
 function averageSignal(signal) {
@@ -60,9 +61,9 @@ function averageSignal(signal) {
   return averages;
 }
 
-function drawGraph() {
-  const NUM_POINTS = 1440;
-  const mSignal = allSignals.filter(s => s.name === mSignalSelector.value)[0] || {};
+function drawGraph(res) {
+  window.lastLoadResponse = res;
+  const mSignal = res.data.signals.filter(s => s.name === mSignalSelector.value)[0] || {};
   const avgVals = averageSignal(mSignal.values);
 
   const firstIndex = nowIndex() - NUM_POINTS + 1;
@@ -87,5 +88,5 @@ function drawGraph() {
     lastVal.x = x;
     lastVal.y = y;
   });
-  setTimeout(drawGraph, 60e3);
+  setTimeout(() => loadJSON(SIGNALS_URL, drawGraph), 60e3);
 }
