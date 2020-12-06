@@ -61,21 +61,15 @@ function averageSignal(signal) {
   return averages;
 }
 
-function drawGraph(res) {
-  window.lastLoadResponse = res;
-  const mSignal = res.data.signals.filter(s => s.name === mSignalSelector.value)[0] || {};
-  const avgVals = averageSignal(mSignal.values);
-
+function drawSignal(signal, mColor) {
   const firstIndex = nowIndex() - NUM_POINTS + 1;
   const lastIndex = nowIndex() + 1;
-  const mVals = [...avgVals.slice(firstIndex), ...avgVals.slice(0, lastIndex)].slice(0, NUM_POINTS);
+  const mVals = [...signal.slice(firstIndex), ...signal.slice(0, lastIndex)].slice(0, NUM_POINTS);
 
   const mMin = Math.min(...mVals);
   const mMax = Math.max(...mVals);
 
   const lastVal = {};
-
-  background(255);
   mVals.forEach((v, i) => {
     const x = map(i, 0, mVals.length - 1, 0, width);
     const y = map(v, mMin, mMax, 0.9 * height, 0.1 * height, true);
@@ -83,10 +77,23 @@ function drawGraph(res) {
     lastVal.x = lastVal.x || 0;
     lastVal.y = lastVal.y || y;
 
+    stroke(mColor);
     line(lastVal.x, lastVal.y, x, y);
 
     lastVal.x = x;
     lastVal.y = y;
   });
+}
+
+
+function drawGraph(res) {
+  window.lastLoadResponse = res;
+  const mSignal = res.data.signals.filter(s => s.name === mSignalSelector.value)[0] || {};
+  const avgVals = averageSignal(mSignal.values);
+  const rawVals = mSignal.values.slice(0);
+
+  background(255);
+  drawSignal(rawVals, 200);
+  drawSignal(avgVals, 64);
   setTimeout(() => loadJSON(SIGNALS_URL, drawGraph), 60e3);
 }
