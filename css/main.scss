@@ -779,6 +779,32 @@ a {
         }
       }
     }
+
+    .cart-form-container {
+      display: block;
+      padding: 32px 0;
+
+      .cart-form {
+        display: none;
+        justify-content: flex-end;
+
+        .cart-email {
+          width: 40%;
+          margin: 0 20px;
+        }
+      }
+      .cart-form.show {
+        display: flex;
+      }
+
+      .cart-form-message {
+        display: none;
+        text-align: right;
+      }
+      .cart-form-message.show {
+        display: block;
+      }
+    }
   }
 }
 

@@ -89,9 +89,53 @@ function generateCart() {
     total.appendChild(nDiv);
   });
 
-  if (cartLS.list().length > 0) cartList.appendChild(total);
+  if (cartLS.list().length > 0) {
+    cartList.appendChild(total);
+    cartList.appendChild(EL.formContainer);
+    EL.form.classList.add('show');
+  }
 }
 
+function clearCart() {
+  cartLS.destroy();
+  Array.from(document.getElementsByClassName('cart-item')).forEach(i => i.remove());
+}
+
+const EL = {};
+const buyHttp = new XMLHttpRequest();
+
+buyHttp.onreadystatechange = (e) => {
+  const mET = e.currentTarget;
+  if (mET.readyState === 4 && mET.status === 200) {
+    const res = JSON.parse(mET.responseText);
+    if(res.success) {
+      EL.form.classList.remove('show');
+      EL.formMessage.classList.add('show');
+      clearCart();
+    }
+  }
+};
+
 window.addEventListener('load', function() {
+  EL.form = document.getElementById('my-cart-form');
+  EL.formContainer = document.getElementById('my-cart-form-container');
+  EL.formMessage = document.getElementById('my-cart-form-message');
+
+  EL.form.addEventListener('submit', ev => {
+    ev.preventDefault();
+
+    const mBody = {
+      email: document.getElementById('my-cart-email').value,
+      total: cartLS.total().toFixed(2),
+      items: []
+    };
+
+    cartLS.list().forEach(i => mBody.items.push(i));
+
+    buyHttp.open('POST', PRODS_POST_URL);
+    buyHttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    buyHttp.send(JSON.stringify(mBody));
+  });
+
   generateCart();
 });

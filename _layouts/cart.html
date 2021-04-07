@@ -9,7 +9,20 @@
 
     <div class="cart">
       <div class="cart-title">{{ page.title }}</div>
-      <div id="cart-list" class="cart-list-container"></div>
+      <div class="cart-content-container">
+        <div id="cart-list" class="cart-list-container">
+          <div id="my-cart-form-container" class="cart-form-container">
+            <form id="my-cart-form" class="cart-form">
+              <input id="my-cart-email" class="cart-email"
+                     type="email" name="_replyto" placeholder="your email" required>
+              <button id="my-cart-submit" class="cart-submit" type="submit" >PLACE ORDER</button>
+            </form>
+            <div id="my-cart-form-message" class="cart-form-message">
+              Thank you. We'll be in touch shortly.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="empty-cart-recommendations" class="product-recommendations">

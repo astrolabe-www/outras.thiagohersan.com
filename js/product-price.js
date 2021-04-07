@@ -1,5 +1,4 @@
-const productApi = 'https://outras-api.herokuapp.com/products';
-const productUrl = `${productApi}/__ARTICLE__`;
+const productUrl = `${PRODS_URL}/__ARTICLE__`;
 
 const productHttp = new XMLHttpRequest();
 

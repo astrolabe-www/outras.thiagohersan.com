@@ -1,0 +1,1 @@
+const API_TOKEN = 'ABCD1234'
