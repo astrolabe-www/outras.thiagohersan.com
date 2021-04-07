@@ -92,7 +92,7 @@ function generateCart() {
   if (cartLS.list().length > 0) {
     cartList.appendChild(total);
     cartList.appendChild(EL.formContainer);
-    EL.form.classList.add('show');
+    // EL.form.classList.add('show');
   }
 }
 
