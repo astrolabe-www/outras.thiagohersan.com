@@ -799,11 +799,14 @@ a {
 
       .cart-explanation {
         display: none;
-        margin-left: 25%;
         padding: 14px 0 0;
         color: $TEXT-ACCENT-COLOR;
         text-align: right;
         font-size: 12px;
+
+        @include media-query(DESKTOP) {
+          margin-left: 25%;
+        }
       }
       .cart-explanation.show {
         display: block;
