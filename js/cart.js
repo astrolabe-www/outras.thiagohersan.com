@@ -93,6 +93,7 @@ function generateCart() {
     cartList.appendChild(total);
     cartList.appendChild(EL.formContainer);
     EL.form.classList.add('show');
+    EL.formExplanation.classList.add('show');
   }
 }
 
@@ -110,6 +111,7 @@ buyHttp.onreadystatechange = (e) => {
     const res = JSON.parse(mET.responseText);
     if(res.success) {
       EL.form.classList.remove('show');
+      EL.formExplanation.classList.remove('show');
       EL.formMessage.classList.add('show');
       clearCart();
     }
@@ -118,6 +120,7 @@ buyHttp.onreadystatechange = (e) => {
 
 window.addEventListener('load', function() {
   EL.form = document.getElementById('my-cart-form');
+  EL.formExplanation = document.getElementById('my-cart-explanation');
   EL.formContainer = document.getElementById('my-cart-form-container');
   EL.formMessage = document.getElementById('my-cart-form-message');
 

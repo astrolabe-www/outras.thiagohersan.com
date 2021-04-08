@@ -797,6 +797,18 @@ a {
         display: flex;
       }
 
+      .cart-explanation {
+        display: none;
+        margin-left: 25%;
+        padding: 14px 0 0;
+        color: $TEXT-ACCENT-COLOR;
+        text-align: right;
+        font-size: 12px;
+      }
+      .cart-explanation.show {
+        display: block;
+      }
+
       .cart-form-message {
         display: none;
         text-align: right;
