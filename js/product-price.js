@@ -1,5 +1,3 @@
-const productUrl = `${PRODS_URL}/__ARTICLE__`;
-
 const productHttp = new XMLHttpRequest();
 
 const EL = {};
@@ -191,7 +189,7 @@ function drawGraph() {
 }
 
 function getProduct() {
-  productHttp.open('GET', productUrl.replace('__ARTICLE__', EL.myArticle));
+  productHttp.open('GET', `${PRODS_URL}/${EL.myArticle}`);
   productHttp.send();
 }
 

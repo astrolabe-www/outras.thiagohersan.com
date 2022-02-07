@@ -135,7 +135,7 @@ window.addEventListener('load', function() {
 
     cartLS.list().forEach(i => mBody.items.push(i));
 
-    buyHttp.open('POST', PRODS_POST_URL);
+    buyHttp.open('POST', PRODS_ORDER_URL);
     buyHttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     buyHttp.send(JSON.stringify(mBody));
   });
