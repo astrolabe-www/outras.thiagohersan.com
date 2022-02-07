@@ -45,13 +45,22 @@
                 <div class="product-price-loader loader"></div>
               </div>
             </div>
+
+            {% if page.tag == "sold" %}
+              {% assign add_button_class = "product-cart-button product-cart-button-disable" %}
+              {% assign add_button_text = "Sold Out" %}
+            {% else %}
+              {% assign add_button_class = "product-cart-button" %}
+              {% assign add_button_text = "Add to cart" %}
+            {% endif %}
+
             <div class="product-cart-buttons-container">
               <div id="product-add-button"
-                   class="product-cart-button"
+                   class="{{ add_button_class }}"
                    data-title="{{ page.title }}"
                    data-url="{{ site.baseurl }}{{ page.url }}"
                    data-cover="{{ site.baseurl }}{{ page.cover }}"
-                   data-id="{{ page.Article }}">Add to cart</div>
+                   data-id="{{ page.Article }}">{{ add_button_text }}</div>
               <div id="product-remove-button"
                    class="product-cart-button product-cart-button-hide">Remove from cart</div>
               <a id="product-view-cart"
