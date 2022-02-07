@@ -43,15 +43,17 @@
       {% for col in site.collections %}
         {% unless col.label == 'posts' %}
           {% assign posts = site.collections | where:"label",col.label | first %}
-          <div class="home-section-title">{{ col.title }}</div>
-          <div class="list-container">
-            {% for p in posts.docs limit:4 %}
-              {% assign lastclass = "last-" | append:forloop.last %}
-              {% include list-item.html product=p displayclass=lastclass %}
-            {% endfor %}
-          </div>
-          <a class="list-link" href="{{ site.baseurl }}/{{ col.label }}/">See More</a>
-          <div class="list-hr"></div>
+          {% if posts.docs.size > 3 %}
+            <div class="home-section-title">{{ col.title }}</div>
+            <div class="list-container">
+              {% for p in posts.docs limit:4 %}
+                {% assign lastclass = "last-" | append:forloop.last %}
+                {% include list-item.html product=p displayclass=lastclass %}
+              {% endfor %}
+            </div>
+            <a class="list-link" href="{{ site.baseurl }}/{{ col.label }}/">See More</a>
+            <div class="list-hr"></div>
+          {% endif %}
         {% endunless %}
       {% endfor %}
 
