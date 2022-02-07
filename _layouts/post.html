@@ -9,10 +9,10 @@
 
     <div class="post">
 
-      {% assign cover = page.cover | default: "assets/algotypes/algotypes_02.jpg" %}
+      {% assign cover = page.cover | default: "/assets/algotypes/algotypes_02.jpg" %}
 
       <div class="post-image-banner"
-           style="background-image: url('{{ site.baseurl }}/{{ cover }}')"></div>
+           style="background-image: url('{{ site.baseurl }}{{ cover }}')"></div>
 
       <div class="home-section-title">{{ page.title }}</div>
       <div class="list-hr"></div>

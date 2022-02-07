@@ -16,6 +16,10 @@ collections:
     title: "Visualizing Worlds Collection"
     output: true
     permalink: /:collection/:title/
+  divination:
+    title: "Divination"
+    output: true
+    permalink: /:collection/:title/
   algotypes:
     title: "Algotypes"
     output: true
