@@ -52,9 +52,7 @@
               {% endfor %}
             </div>
             <a class="list-link" href="{{ site.baseurl }}/{{ col.label }}/">See More</a>
-            {% unless forloop.last %}
-              <div class="list-hr"></div>
-            {% endunless %}
+            <div class="list-hr"></div>
           {% endif %}
         {% endunless %}
       {% endfor %}
