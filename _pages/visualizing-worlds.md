@@ -3,7 +3,6 @@ layout: list
 title: Visualizing Worlds Collection
 slug: visualizing-worlds
 permalink: /visualizing-worlds/
-menu: true
 ---
 A collection of wearable antennas made of copper and semi-precious stones modeled after the shapes and sizes of body parts, sections, appendages, ... They are meant to be worn around the part of the body from which they were modeled, creating an additional connection between the original template body and that of the wearer.
 

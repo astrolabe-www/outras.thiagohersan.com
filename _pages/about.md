@@ -2,6 +2,8 @@
 layout: post
 title: 'about'
 permalink: /about/
+cover: /assets/algotypes/algotypes_22.jpg
+menu: true
 ---
 
 Given the complexities of our hybrid and hyper-connected world, it is necessary to rethink how we want to connect, create and live within networks. In a world where a virus is not just a biological issue, it is impossible to try to understand our situation without recognizing the networks and signals that cross and connect us. We are part of invisible systems whose signals permeate and reverberate within us, but our lack of sensitivity to them makes us even more passive within these networks.

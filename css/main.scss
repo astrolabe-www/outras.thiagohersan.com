@@ -34,6 +34,7 @@ a {
   background-color: $BACKGROUND-COLOR;
 
   @include media-query(DESKTOP) {
+    justify-content: flex-start;
     padding: 20px 2.5%;
   }
 
@@ -85,6 +86,7 @@ a {
     display: none;
     @include media-query(DESKTOP) {
       display: block;
+      margin-left: 20px;
     }
   }
 }
@@ -124,6 +126,7 @@ a {
     padding: 16px;
     color: $TEXT-COLOR;
     transition: color $TRANSITION-PERIOD linear;
+    z-index: 2;
 
     &:hover {
       color: $TEXT-MEDIUM-COLOR;
@@ -154,7 +157,34 @@ a {
     flex-wrap: nowrap;
   }
 
-  li {
+  .drop-down-button {
+    display: inline-block;
+    position: relative;
+
+    .drop-down-content {
+      display: block;
+      position: relative;
+      text-align: left;
+      padding: 0;
+      min-width: 100%;
+      background-color: $BACKGROUND-COLOR;
+
+      @include media-query(DESKTOP) {
+        position: absolute;
+        display: none;
+        min-width: 400px;
+        padding-top: 8px;
+      }
+    }
+  }
+
+  .drop-down-button:hover {
+    .drop-down-content {
+      display: block;
+    }
+  }
+
+  .menu-item {
     list-style: none;
     padding: 24px 24px 0;
     font-size: 20px;
@@ -183,6 +213,20 @@ a {
       }
       &:hover {
         color: $TEXT-MEDIUM-COLOR;
+      }
+    }
+  }
+
+  .drop-down-content {
+    .menu-item {
+      text-align: left;
+      padding: 8px;
+      padding-right: 0;
+      font-size: 18px;
+
+      @include media-query(DESKTOP) {
+        font-size: 12px;
+        padding: 8px;
       }
     }
   }
@@ -340,6 +384,12 @@ a {
 }
 
 .post {
+  .home-section-title {
+    @include media-query(DESKTOP) {
+      padding: 40px 0 20px;
+    }
+  }
+
   .post-image-banner {
     width: 100%;
     padding-bottom: 33%;
