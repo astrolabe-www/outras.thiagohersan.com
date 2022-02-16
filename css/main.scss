@@ -880,31 +880,6 @@ a {
   color: $TEXT-LIGHT-COLOR;
   text-align: center;
 
-  .footer-title {
-    margin: 0 auto;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .6em;
-    line-height: 1em;
-
-    &::before {
-      content: ". ";
-      color: $TEXT-ACCENT-COLOR;
-    }
-    &::after {
-      content: ".";
-      color: $TEXT-ACCENT-COLOR;
-    }
-  }
-
-  .footer-hr {
-    width: 200px;
-    margin: 12px auto 0;
-    border-bottom: 2px $TEXT-LIGHT-COLOR solid;
-  }
-
   .footer-text {
     margin: 0 auto;
     max-width: 500px;
@@ -912,18 +887,6 @@ a {
     font-size: 20px;
     font-weight: 200;
     line-height: 1.1em;
-  }
-
-  .footer-link-container {
-    padding: 8px 0 24px;
-    text-transform: uppercase;
-    letter-spacing: .5em;
-
-    .footer-link {
-      display: block;
-      padding: 4px 0;
-      text-decoration: none;
-    }
   }
 }
 

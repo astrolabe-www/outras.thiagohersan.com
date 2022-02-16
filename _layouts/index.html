@@ -52,14 +52,12 @@
               {% endfor %}
             </div>
             <a class="list-link" href="{{ site.baseurl }}/{{ col.label }}/">See More</a>
-            <div class="list-hr"></div>
+            {% unless forloop.last %}
+              <div class="list-hr"></div>
+            {% endunless %}
           {% endif %}
         {% endunless %}
       {% endfor %}
-
-      <div class="home-image-banner"
-           style="background-image: url('{{ site.baseurl }}/assets/algotypes/algotypes_00.jpg')"></div>
-
     </div>
 
     {% include footer.html %}
