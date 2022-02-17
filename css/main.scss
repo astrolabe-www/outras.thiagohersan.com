@@ -167,6 +167,7 @@ a {
       text-align: left;
       padding: 0;
       min-width: 100%;
+      padding-top: 4px;
       background-color: $BACKGROUND-COLOR;
 
       @include media-query(DESKTOP) {
@@ -184,9 +185,13 @@ a {
     }
   }
 
+  .menu-item:first-of-type {
+    padding: 24px 24px 0;
+  }
+
   .menu-item {
     list-style: none;
-    padding: 24px 24px 0;
+    padding: 16px 24px 0;
     font-size: 20px;
     font-weight: 200;
     letter-spacing: .25em;
@@ -222,7 +227,7 @@ a {
       text-align: left;
       padding: 8px;
       padding-right: 0;
-      font-size: 18px;
+      font-size: 16px;
 
       @include media-query(DESKTOP) {
         font-size: 12px;
