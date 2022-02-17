@@ -187,6 +187,9 @@ a {
 
   .menu-item:first-of-type {
     padding: 24px 24px 0;
+    @include media-query(DESKTOP) {
+      padding: 0 24px;
+    }
   }
 
   .menu-item {
